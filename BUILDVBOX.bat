@@ -95,9 +95,9 @@ if exist "%_build_dir%\SDK_LINK" rd /s /q "%_build_dir%\SDK_LINK"
 mklink /D "%_build_dir%\VS_LINK" "%_vs10_path%"
 mklink /D "%_build_dir%\WDK_LINK" "%_wdk_path%"
 mklink /D "%_build_dir%\SDK_LINK" "%_sdk_path%"
-set _vs10_path=%_build_dir%\VS_LINK
-set _wdk_path=%_build_dir%\WDK_LINK
-set _sdk_path=%_build_dir%\SDK_LINK
+set "_vs10_path=%_build_dir%\VS_LINK"
+set "_wdk_path=%_build_dir%\WDK_LINK"
+set "_sdk_path=%_build_dir%\SDK_LINK"
 exit /b
 :_clean_temp
 if exist "%_build_dir%\temp" (rd /s /q "%_build_dir%\temp")
@@ -256,7 +256,7 @@ call :_print_cfg PATH_TOOL_MINGWW64 := %_build_dir_unix%/mingw64
 call :_print_cfg PATH_SDK_QT5 := %_build_dir_unix%/qt/qtbase
 call :_print_cfg PATH_TOOL_QT5 := $(PATH_SDK_QT5)
 call :_print_cfg VBOX_PATH_QT := $(PATH_SDK_QT5)
-call :_print_cfg VBOX_BLD_PYTHON := %_build_dir_unix%/python/python.exe
+call :_print_cfg VBOX_BLD_PYTHON := %_python_path_unix%/python.exe
 call :_print_cfg VBOX_PATH_SDK := %_build_dir_unix%/vbox_sdk
 call :_print_cfg SDK_VBOX_LIBCURL-x86_INCS := %_build_dir_unix%/libcurl/builds/libcurl-vc10-x86-release-dll-ipv6-sspi-winssl/include
 call :_print_cfg SDK_VBOX_LIBCURL-x86_LIBS.x86 := %_build_dir_unix%/libcurl/builds/libcurl-vc10-x86-release-dll-ipv6-sspi-winssl/lib/libcurl.lib
@@ -355,29 +355,29 @@ if not defined _reg_value (
 	call :_print_error Visual Studio 2010 not found.
 	exit /b
 )
-set _vs10_path=%_reg_value%
-call :_print_ok Visual Studio 2010 at %_vs10_path%
+set "_vs10_path=%_reg_value%"
+call :_print_ok Visual Studio 2010 located.
 exit /b
 :_get_DXSDK
 if defined _error_state (goto _error)
 call :_print_msg DirectX SDK not found, attempting to download...
 call :_download %_dxsdk_link%
-for /f "tokens=1 usebackq" %%g in (`dir "%_build_dir%\temp\*" /b`) do set _temp_file=%%g
+for /f "tokens=1 usebackq" %%g in (`dir "%_build_dir%\temp\*" /b`) do set "_temp_file=%%g"
 if defined _temp_file "%_build_dir%\temp\%_temp_file%" /U /P "%_build_dir%\DXSDK"
-set _dxsdk_path=%_build_dir%\DXSDK
+set "_dxsdk_path=%_build_dir%\DXSDK"
 if not exist "%_dxsdk_path%\Include\D3D10.h" (
 call :_print_error DirectX SDK download/installation failed.
 exit /b
 )
-call :_print_ok DirectX SDK installed at %_dxsdk_path%
+call :_print_ok DirectX SDK installed.
 exit /b
 :_find_DXSDK
 if defined _error_state (goto _error)
-if defined DXSDK_DIR set _dxsdk_path=%DXSDK_DIR%
+if defined DXSDK_DIR set "_dxsdk_path=%DXSDK_DIR%"
 if [%_dxsdk_path%] neq [] goto _DXSDK_found
 call :_get_reg_value "HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\DirectX\Microsoft DirectX SDK (June 2010)" "InstallPath"
 if not defined _reg_value goto _DXSDK_not_found
-set _dxsdk_path=%_reg_value%
+set "_dxsdk_path=%_reg_value%"
 goto _DXSDK_found
 :_DXSDK_not_found
 call :_get_DXSDK
@@ -436,7 +436,7 @@ if exist "%_build_dir%\%1" rd /s /q "%_build_dir%\%1"
 for /f "tokens=1 usebackq" %%g in (`dir "%_build_dir%\temp\*" /L /b`) do set "_temp_file=%%g"
 for /f "tokens=1 usebackq" %%g in (`echo %_temp_file% ^| findstr /R /I ".*\.tar\..*"`) do "set _GTARD=%%g"
 if [%2] neq [] (
-set _mkdir="\%1"
+set "_mkdir=\%1"
 mkdir "%_build_dir%\temp\%1")
 if not defined _GTARD for /f "tokens=1 usebackq" %%g in (`echo %_temp_file% ^| findstr /R /I ".*\.tgz\>"`) do "set _GTARD=%%g"
 if defined _GTARD (
@@ -446,7 +446,7 @@ if defined _GTARD (
 )
 if %errorlevel% neq 0 call :_print_error Decompressing %1 failed.
 del "%_build_dir%\temp\%_temp_file%"
-for /f "tokens=1 usebackq" %%g in (`dir "%_build_dir%\temp\*" /b`) do set _temp_dir=%%g
+for /f "tokens=1 usebackq" %%g in (`dir "%_build_dir%\temp\*" /b`) do set "_temp_dir=%%g"
 if not defined _temp_dir (call :_print_error Decompressing %1 failed.) else (move /y "%_build_dir%\temp\%_temp_dir%" "%_build_dir%\%1")
 call :_clean_temp
 exit /b
@@ -561,7 +561,7 @@ for /f "tokens=1 usebackq" %%g in (`dir "%_build_dir%\temp\*" /b`) do set "_temp
 if defined _temp_file (%_build_dir%\temp\%_temp_file% /extract /exenoui "%_build_dir%\temp") else (call :_print_error Locating ActivePerl failed.)
 if %errorlevel% neq 0 call :_print_error Unpacking ActivePerl failed.
 del %_build_dir%\temp\%_temp_file%
-for /f "tokens=1 usebackq" %%g in (`dir "%_build_dir%\temp\*" /b`) do set _temp_dir=%%g
+for /f "tokens=1 usebackq" %%g in (`dir "%_build_dir%\temp\*" /b`) do set "_temp_dir=%%g"
 if not defined _temp_dir (call :_print_error Locating ActivePerl failed.) else (move /y "%_build_dir%\temp\%_temp_dir%" "%_build_dir%\perl")
 call :_clean_temp
 exit /b
