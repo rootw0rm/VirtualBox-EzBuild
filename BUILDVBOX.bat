@@ -20,6 +20,7 @@ set _dxsdk_link="https://download.microsoft.com/download/A/E/7/AE743F1F-632B-480
 set _sdk71_link="http://download.microsoft.com/download/F/1/0/F10113F5-B750-4969-A255-274341AC6BCE/GRMSDKX_EN_DVD.iso"
 set _wdk71_link="https://download.microsoft.com/download/4/A/2/4A25C7D5-EFBE-4182-B6A9-AE6850409A78/GRMWDK_EN_7600_1.ISO"
 rem main variables to work with, listed here for others:
+set _python_path=
 set _wdk_path=
 set _sdk_path=
 set _dxsdk_path=
@@ -29,6 +30,7 @@ set _sdk_path_unix=
 set _dxsdk_path_unix=
 set _vs10_path_unix=
 set _build_dir_unix=
+set _python_path_unix=
 :_main
 setlocal
 set _error_state=
@@ -71,6 +73,7 @@ set _sdk_path_unix=%_sdk_path:\=/%
 set _dxsdk_path_unix=%_dxsdk_path:\=/%
 set _vs10_path_unix=%_vs10_path:\=/%
 set _build_dir_unix=%_build_dir:\=/%
+set _python_path_unix=%_python_path:\=/%
 exit /b
 :_print_error
 if defined _error_state (goto _error) else echo !!! [ Error: %* ] !!!
@@ -99,11 +102,17 @@ exit /b
 :_clean_temp
 if exist "%_build_dir%\temp" (rd /s /q "%_build_dir%\temp")
 exit /b
+:_get__default_reg_value (key)
+set _reg_value=
+for /f "tokens=2,* usebackq" %%g in (`reg query %* /ve`) do set "_reg_value=%%h"
+rem remove trailing slash
+if "%_reg_value:~-1%"=="\" set "_reg_value=%_reg_value:~0,-1%"
+exit /b
 :_get_reg_value (key) (value)
 set _reg_value=
-for /f "tokens=2,* usebackq" %%g in (`reg query %1 /v %2`) do set _reg_value=%%h
+for /f "tokens=2,* usebackq" %%g in (`reg query %1 /v %2`) do set "_reg_value=%%h"
 rem remove trailing slash
-if "%_reg_value:~-1%"=="\" set _reg_value=%_reg_value:~0,-1%
+if "%_reg_value:~-1%"=="\" set "_reg_value=%_reg_value:~0,-1%"
 exit /b
 :_make_cert
 if defined _error_state (goto _error)
@@ -389,8 +398,8 @@ call :_get_reg_value "HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\KitSetup
 if not "%_reg_value%" == "0x1" call :_print_error Microsoft WDK 7.1 not found.
 call :_get_reg_value "HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\KitSetup\configured-kits\{B4285279-1846-49B4-B8FD-B9EAF0FF17DA}\{68656B6B-555E-5459-5E5D-6363635E5F61}" "setup-install-location"
 if not defined _reg_value call :_print_error Microsoft WDK 7.1 not found.
-set _wdk_path=%_reg_value%
-call :_print_ok Microsoft WDK 7.1 located at %_wdk_path%
+set "_wdk_path=%_reg_value%"
+call :_print_ok Microsoft WDK 7.1 located.
 exit /b
 :_find_SDK_71A
 if defined _error_state (goto _error)
@@ -399,8 +408,8 @@ if not defined _reg_value (
 	call :_print_msg Microsoft SDK 7.1A not found.
 	exit /b
 )
-set _sdk_path=%_reg_value%
-call :_print_ok Microsoft SDK 7.1A located at %_sdk_path%
+set "_sdk_path=%_reg_value%"
+call :_print_ok Microsoft SDK 7.1A located.
 exit /b
 :_find_SDK_71
 if defined _error_state (goto _error)
@@ -409,8 +418,8 @@ if not defined _reg_value (
 	call :_print_error Microsoft SDK 7.1 not found.
 	exit /b
 )
-set _sdk_path=%_reg_value%
-call :_print_ok Microsoft SDK 7.1 located at %_sdk_path%
+set "_sdk_path=%_reg_value%"
+call :_print_ok Microsoft SDK 7.1 located.
 exit /b
 :_download
 call :_clean_temp
@@ -424,12 +433,12 @@ exit /b
 if defined _error_state (goto _error)
 set _mkdir=
 if exist "%_build_dir%\%1" rd /s /q "%_build_dir%\%1"
-for /f "tokens=1 usebackq" %%g in (`dir "%_build_dir%\temp\*" /L /b`) do set _temp_file=%%g
-for /f "tokens=1 usebackq" %%g in (`echo %_temp_file% ^| findstr /R /I ".*\.tar\..*"`) do set _GTARD=%%g
+for /f "tokens=1 usebackq" %%g in (`dir "%_build_dir%\temp\*" /L /b`) do set "_temp_file=%%g"
+for /f "tokens=1 usebackq" %%g in (`echo %_temp_file% ^| findstr /R /I ".*\.tar\..*"`) do "set _GTARD=%%g"
 if [%2] neq [] (
 set _mkdir="\%1"
 mkdir "%_build_dir%\temp\%1")
-if not defined _GTARD for /f "tokens=1 usebackq" %%g in (`echo %_temp_file% ^| findstr /R /I ".*\.tgz\>"`) do (set _GTARD=%%g)
+if not defined _GTARD for /f "tokens=1 usebackq" %%g in (`echo %_temp_file% ^| findstr /R /I ".*\.tgz\>"`) do "set _GTARD=%%g"
 if defined _GTARD (
 	%_7z% x -aoa -so "%_build_dir%\temp\%_temp_file%" | %_7z% x -o"%_build_dir%\temp%_mkdir%" -aoa -si -ttar
 ) else (
@@ -513,17 +522,31 @@ if exist "jom\jom.exe" (
 call :_download %_jom_link%
 call :_decompress_next jom 1
 exit /b
-:_python
+:_find_python
 if defined _error_state (goto _error)
 if exist "python\python.exe" (
-	call :_print_ok python found!
+	set "_python_path=%_build_dir%\python\python.exe"
+	exit /b
+)
+call :_get__default_reg_value "HKEY_CURRENT_USER\SOFTWARE\Python\PythonCore\2.7\InstallPath"
+if defined _reg_value (
+	set "_python_path=%_reg_value%"
+	exit /b
+)
+exit /b
+:_python
+if defined _error_state (goto _error)
+call :_find_python
+if defined _reg_value (
+	call :_print_ok Python found!
 	exit /b
 ) else call :_print_msg Downloading Python...
 call :_download %_python_link%
 if %errorlevel% neq 0 call :_print_error Downloading Python failed.
-for /f "tokens=1 usebackq" %%g in (`dir "%_build_dir%\temp\*" /L /b`) do set _temp_file=%%g
-if defined _temp_file (msiexec /i %_build_dir%\temp\%_temp_file% TARGETDIR="%_build_dir%\python" /passive /norestart) else (call :_print_error Locating WinPython failed.)
+for /f "tokens=1 usebackq" %%g in (`dir "%_build_dir%\temp\*" /L /b`) do set "_temp_file=%%g"
+if defined _temp_file (msiexec /i %_build_dir%\temp\%_temp_file% TARGETDIR="%_build_dir%\python" /quiet /passive /norestart) else (call :_print_error Locating Python failed.)
 if %errorlevel% neq 0 call :_print_error Installing Python failed.
+call :_find_python
 call :_clean_temp
 exit /b
 :_perl
@@ -534,7 +557,7 @@ if exist "perl\bin\perl.exe" (
 ) else call :_print_msg Downloading ActivePerl...
 call :_download %_perl_link%
 if %errorlevel% neq 0 call :_print_error Downloading ActivePerl failed.
-for /f "tokens=1 usebackq" %%g in (`dir "%_build_dir%\temp\*" /b`) do set _temp_file=%%g
+for /f "tokens=1 usebackq" %%g in (`dir "%_build_dir%\temp\*" /b`) do set "_temp_file=%%g"
 if defined _temp_file (%_build_dir%\temp\%_temp_file% /extract /exenoui "%_build_dir%\temp") else (call :_print_error Locating ActivePerl failed.)
 if %errorlevel% neq 0 call :_print_error Unpacking ActivePerl failed.
 del %_build_dir%\temp\%_temp_file%
