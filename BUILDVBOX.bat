@@ -37,8 +37,8 @@ set _error_state=
 net session >nul 2>&1
 if %errorlevel% neq 0 call :_print_error Administrative rights required for certificate creation and installers.
 call :_find_WDK
-call :_find_SDK_71A
-if not defined _sdk_path call :_find_SDK_71
+rem call :_find_SDK_71A
+call :_find_SDK_71
 call :_find_DXSDK
 call :_openssl
 call :_libcurl
@@ -144,11 +144,11 @@ exit /b
 :_set_path
 set PATH=
 set VSINSTALLDIR=%_vs10_path%
-set PATH=%VSINSTALLDIR%\Common7\Tools;%PATH%
-set PATH=%VSINSTALLDIR%\Common7\IDE;%PATH%
-set PATH=%VSINSTALLDIR%\VC\vcpackages;%PATH%
+set PATH=%_vs10_path%\Common7\Tools;%PATH%
+set PATH=%_vs10_path%\Common7\IDE;%PATH%
+set PATH=%_vs10_path%\VC\vcpackages;%PATH%
 set PATH=%_build_dir%\perl\bin;%PATH%
-set PATH=%_build_dir%\python;%_build_dir%\python\Tools\Scripts;%PATH%
+set PATH=%_python_path%;%_python_path%\Tools\Scripts;%PATH%
 set PATH=%_build_dir%\jom;%PATH%
 set PATH=%_build_dir%\nasm;%PATH%
 set PATH=%_build_dir%\ruby\bin;%PATH%
@@ -236,14 +236,15 @@ SET PATH=%_build_dir%\qt\qtbase\bin;%_build_dir%\qt\gnuwin32\bin;%PATH%
 SET QTDIR="%_build_dir%\qt\qtbase"
 cd "%_build_dir%\qt"
 SET QMAKESPEC=win32-msvc2010
-nmake confclean
-call configure.bat -release -confirm-license -mp -opensource -opengl dynamic -openvg -no-compile-examples -nomake examples -nomake tests -v
+nmake distclean
+call configure.bat -release -confirm-license -mp -opensource -opengl dynamic -openvg -no-compile-examples -nomake examples -nomake tests
 nmake
 endlocal
 cd "%_build_dir%"
 exit /b
 :_gen_vbox_config
 if defined _error_state (goto _error)
+del "%_build_dir%\vbox\LocalConfig.kmk"
 call :_print_cfg VBOX_OSE := 1
 call :_print_cfg PATH_SDK_WINDDK71 := %_wdk_path_unix%
 call :_print_cfg PATH_TOOL_VCC100 := %_vs10_path_unix%/VC
