@@ -436,11 +436,11 @@ if defined _error_state (goto _error)
 set _mkdir=
 if exist "%_build_dir%\%1" rd /s /q "%_build_dir%\%1"
 for /f "tokens=1 usebackq" %%g in (`dir "%_build_dir%\temp\*" /L /b`) do set "_temp_file=%%g"
-for /f "tokens=1 usebackq" %%g in (`echo %_temp_file% ^| findstr /R /I ".*\.tar\..*"`) do "set _GTARD=%%g"
+for /f "tokens=1 usebackq" %%g in (`echo %_temp_file% ^| findstr /R /I ".*\.tar\..*"`) do set "_GTARD=%%g"
 if [%2] neq [] (
 set "_mkdir=\%1"
 mkdir "%_build_dir%\temp\%1")
-if not defined _GTARD for /f "tokens=1 usebackq" %%g in (`echo %_temp_file% ^| findstr /R /I ".*\.tgz\>"`) do "set _GTARD=%%g"
+if not defined _GTARD for /f "tokens=1 usebackq" %%g in (`echo %_temp_file% ^| findstr /R /I ".*\.tgz\>"`) do set "_GTARD=%%g"
 if defined _GTARD (
 	%_7z% x -aoa -so "%_build_dir%\temp\%_temp_file%" | %_7z% x -o"%_build_dir%\temp%_mkdir%" -aoa -si -ttar
 ) else (
