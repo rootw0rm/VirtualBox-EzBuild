@@ -36,7 +36,7 @@ What it consists of:
 
 Details of the VirtualBox build:
 
-* 64-bit release binaries, test signed, with x86 support
+* 64-bit release binaries, test signed, with x86 guest support
 * No SDL support, Qt5 only
 * Hardening disabled
 * Tested on version 5.1.12
@@ -79,7 +79,7 @@ move the folder where you want it, and run "loadall.cmd" and "comregister.cmd"
 
 Notes:
 
-Building everything will take up to a few hours, VirtualBox only should take 1-2 hours.
+Building everything will take up to a few hours, a VirtualBox rebuild should take 1-2 hours.
 To update library versions or VirtualBox version, updating the link at the top of
 BUILDVBOX.bat should suffice as long as an archive link (.7z, .tgz, etc.) is
 changed to another archive link.  Archive type shouldn't matter.  Exe links
