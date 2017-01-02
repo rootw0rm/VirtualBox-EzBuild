@@ -1,6 +1,6 @@
 @rem VirtualBox for Windows EZ-Build by rootw0rm, https://github.com/rootw0rm/VirtualBox-EzBuild
 @echo off
-cd %~dp0
+cd /d %~dp0
 set "_build_dir=%cd%"
 set "_install_path=%_build_dir%\output"
 set "_7z=%_build_dir%\tools\7z\7za.exe"
