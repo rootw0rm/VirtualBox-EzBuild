@@ -156,6 +156,7 @@ set PATH=%_build_dir%\mingw64\bin;%PATH%
 set PATH=%windir%\system32;%windir%;%windir%\System32\Wbem;%windir%\System32\WindowsPowerShell\v1.0;%PATH%
 exit /b
 :_build_openssl_x86
+if defined _error_state (goto _error)
 call :_check_files_exist "%_build_dir%\openssl\x86\lib\libcrypto.lib" "%_build_dir%\openssl\x86\lib\libssl.lib" "%_build_dir%\openssl\x86\bin\libcrypto-1_1.dll" "%_build_dir%\openssl\x86\bin\libssl-1_1.dll"
 if defined _files_exist (
 	call :_print_ok OpenSSL x86 libs and binaries found.
@@ -171,6 +172,12 @@ nmake
 nmake install
 endlocal
 cd "%_build_dir%"
+call :_check_files_exist "%_build_dir%\openssl\x86\lib\libcrypto.lib" "%_build_dir%\openssl\x86\lib\libssl.lib" "%_build_dir%\openssl\x86\bin\libcrypto-1_1.dll" "%_build_dir%\openssl\x86\bin\libssl-1_1.dll"
+if not defined _files_exist (
+	call :_print_error Error building OpenSSL x86.
+	exit /b
+)
+call :_print_ok OpenSSL x86 successfully built.
 exit /b
 :_build_openssl_x64
 if defined _error_state (goto _error)
@@ -189,6 +196,12 @@ nmake
 nmake install
 endlocal
 cd "%_build_dir%"
+call :_check_files_exist "%_build_dir%\openssl\x64\lib\libcrypto.lib" "%_build_dir%\openssl\x64\lib\libssl.lib" "%_build_dir%\openssl\x64\bin\libcrypto-1_1-x64.dll" "%_build_dir%\openssl\x64\bin\libssl-1_1-x64.dll"
+if not defined _files_exist (
+	call :_print_error Error building OpenSSL x64.
+	exit /b
+)
+call :_print_ok OpenSSL x64 successfully built.
 exit /b
 :_build_libcurl_x86
 if defined _error_state (goto _error)
@@ -204,6 +217,12 @@ cd "%_build_dir%\libcurl\winbuild"
 nmake /f Makefile.vc mode=dll VC=10 MACHINE=x86
 endlocal
 cd "%_build_dir%"
+call :_check_files_exist "%_build_dir%\libcurl\builds\libcurl-vc10-x86-release-dll-ipv6-sspi-winssl\lib\libcurl.lib"
+if not defined _files_exist (
+	call :_print_error Error building libcurl x86.
+	exit /b
+)
+call :_print_ok libcurl x86 successfully built.
 exit /b
 :_build_libcurl_x64
 if defined _error_state (goto _error)
@@ -219,6 +238,12 @@ cd "%_build_dir%\libcurl\winbuild"
 nmake /f Makefile.vc mode=dll VC=10 MACHINE=x64
 endlocal
 cd "%_build_dir%"
+call :_check_files_exist "%_build_dir%\libcurl\builds\libcurl-vc10-x64-release-dll-ipv6-sspi-winssl\lib\libcurl.lib"
+if not defined _files_exist (
+	call :_print_error Error building libcurl x64.
+	exit /b
+)
+call :_print_ok libcurl x64 successfully built.
 exit /b
 :_build_qt
 if defined _error_state (goto _error)
@@ -241,10 +266,16 @@ call configure.bat -release -confirm-license -mp -opensource -opengl dynamic -op
 nmake
 endlocal
 cd "%_build_dir%"
+call :_check_files_exist "%_bin%\Qt5Core.dll" "%_bin%\Qt5Gui.dll" "%_bin%\Qt5OpenGL.dll" "%_bin%\Qt5PrintSupport.dll" "%_bin%\Qt5Widgets.dll" "%_bin%\Qt5WinExtras.dll"
+if not defined _files_exist (
+	call :_print_error Error building Qt.
+	exit /b
+)
+call :_print_ok Qt successfully built.
 exit /b
 :_gen_vbox_config
 if defined _error_state (goto _error)
-del "%_build_dir%\vbox\LocalConfig.kmk"
+if exist "%_build_dir%\vbox\LocalConfig.kmk" del "%_build_dir%\vbox\LocalConfig.kmk"
 call :_print_cfg VBOX_OSE := 1
 call :_print_cfg PATH_SDK_WINDDK71 := %_wdk_path_unix%
 call :_print_cfg PATH_TOOL_VCC100 := %_vs10_path_unix%/VC
@@ -296,6 +327,11 @@ call :_print_cfg VBOX_WITH_WARNINGS_AS_ERRORS :=
 exit /b
 :_build_vbox
 if defined _error_state (goto _error)
+net stop vboxdrv
+net stop vboxnetlwf
+net stop vboxnetadp
+net stop vboxusbmon
+net stop vboxnetlwf
 if not exist "%_build_dir%\vbox\LocalConfig.kmk" call :_gen_vbox_config
 if exist "%_build_dir%\vbox\out" rd /s /q "%_build_dir%\vbox\out"
 cd "%_build_dir%\vbox"
@@ -433,24 +469,31 @@ if %errorlevel% neq 0 call :_print_error Downloading %* failed.
 exit /b
 :_decompress_next (dest_name) (create_dir?)
 if defined _error_state (goto _error)
+setlocal enabledelayedexpansion
 set _mkdir=
 if exist "%_build_dir%\%1" rd /s /q "%_build_dir%\%1"
-for /f "tokens=1 usebackq" %%g in (`dir "%_build_dir%\temp\*" /L /b`) do set "_temp_file=%%g"
+for /f "tokens=1 usebackq" %%g in (`dir "%_build_dir%\temp\*" /b`) do set "_temp_file=%%g"
 for /f "tokens=1 usebackq" %%g in (`echo %_temp_file% ^| findstr /R /I ".*\.tar\..*"`) do set "_GTARD=%%g"
 if [%2] neq [] (
-set "_mkdir=\%1"
-mkdir "%_build_dir%\temp\%1")
-if not defined _GTARD for /f "tokens=1 usebackq" %%g in (`echo %_temp_file% ^| findstr /R /I ".*\.tgz\>"`) do set "_GTARD=%%g"
+	set "_mkdir=\%1"
+	mkdir "%_build_dir%\temp\%1"
+)
+if not defined _GTARD for /f "tokens=1 usebackq" %%g in (`echo !_temp_file! ^| findstr /R /I ".*\.tgz\>"`) do set "_GTARD=%%g"
 if defined _GTARD (
-	%_7z% x -aoa -so "%_build_dir%\temp\%_temp_file%" | %_7z% x -o"%_build_dir%\temp%_mkdir%" -aoa -si -ttar
+	rem %_7z% x -aoa -so "%_build_dir%\temp\%_temp_file%" | %_7z% x -o"%_build_dir%\temp%_mkdir%" -aoa -si -ttar
+	%_7z% x -o"%_build_dir%\temp" -aoa "%_build_dir%\temp\!_temp_file!"
+	del "%_build_dir%\temp\!_temp_file!"
+	for /f "tokens=1 usebackq" %%g in (`dir "%_build_dir%\temp\*" /b`) do set "_temp_file=%%g"
+	%_7z% x -o"%_build_dir%\temp%_mkdir%" -aoa "%_build_dir%\temp\!_temp_file!"
 ) else (
-	%_7z% x -o"%_build_dir%\temp%_mkdir%" -aoa "%_build_dir%\temp\%_temp_file%"
+	%_7z% x -o"%_build_dir%\temp%_mkdir%" -aoa "%_build_dir%\temp\!_temp_file!"
 )
 if %errorlevel% neq 0 call :_print_error Decompressing %1 failed.
-del "%_build_dir%\temp\%_temp_file%"
+del "%_build_dir%\temp\!_temp_file!"
 for /f "tokens=1 usebackq" %%g in (`dir "%_build_dir%\temp\*" /b`) do set "_temp_dir=%%g"
-if not defined _temp_dir (call :_print_error Decompressing %1 failed.) else (move /y "%_build_dir%\temp\%_temp_dir%" "%_build_dir%\%1")
+if not defined _temp_dir (call :_print_error Decompressing %1 failed.) else (move /y "%_build_dir%\temp\!_temp_dir!" "%_build_dir%\%1")
 call :_clean_temp
+endlocal
 exit /b
 :_openssl
 if defined _error_state (goto _error)
