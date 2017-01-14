@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>74a55074-5b90-4f8c-9f77-4482133c6cb5</ProjectGuid>
+    <RootNamespace>VBoxDTraceCmd</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+    <IncludePath>..\vbox\src\VBox\ExtPacks\VBoxDTrace\include;..\vbox\src\VBox\ExtPacks\VBoxDTrace\onnv\uts\common;..\vbox\src\VBox\ExtPacks\VBoxDTrace\onnv\lib\libctf\common;..\vbox\src\VBox\ExtPacks\VBoxDTrace\onnv\lib\libdtrace\common;..\vbox\src\VBox\ExtPacks\VBoxDTrace\onnv\common\ctf;..\vbox\src\VBox\ExtPacks\VBoxDTrace\generated;..\vbox\out\win.amd64\release\obj\VBoxDTraceCmd\dtrace;..\vbox\src\libs\zlib-1.2.8;..\VS_LINK\VC\include;..\VS_LINK\VC\atlmfc\include;..\SDK_LINK\Include;..\vbox\include;..\vbox\out\win.amd64\release;</IncludePath>
+    <LibraryPath>..\SDK_LINK\Lib\x64;..\vbox\out\win.amd64\release\obj\VBoxDTraceCmd;</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalOptions>-c -TC -nologo -O2 -Zi -Zl -GR- -GF -MD -Zc:wchar_t- -Oy- -W4 -Wall -wd4065 -wd4996 -wd4127 -wd4706 -wd4201 -wd4214 -wd4510 -wd4512 -wd4610 -wd4514 -wd4820 -wd4365 -wd4987 -wd4710 -wd4061 -wd4986 -wd4191 -wd4574 -wd4917 -wd4711 -wd4611 -wd4571 -wd4324 -wd4505 -wd4263 -wd4264 -wd4738 -wd4242 -wd4244 -EHs- -DVBOX -DVBOX_OSE -DVBOX_WITH_64_BITS_GUESTS -DVBOX_WITH_REM -DVBOX_WITH_RAW_MODE -DRT_OS_WINDOWS -D__WIN__ -DRT_ARCH_AMD64 -D__AMD64__ -D__WIN64__ -DVBOX_WITH_DEBUGGER -DIN_RING3 -DHC_ARCH_BITS=64 -DGC_ARCH_BITS=64 -DVBOX_IN_EXTPACK -DVBOX_IN_EXTPACK_R3 -DVBOX_IN_DTRACE_EXTPACK -DRTMEM_WRAP_TO_EF_APIS -DVBOX_EXTPACK_VBOXDTRACE_MANGLED_NAME=\"Oracle_VBoxDTrace_Extension_Pack\" -DUSING_FLEX -D_CRT_SECURE_NO_DEPRECATE -DYY_USE_PROTOS=1 -DYYENABLE_NLS=0 -DYYLTYPE_IS_TRIVIAL=0 %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>D:\EZBUILD\vbox\out\win.amd64\release\obj\VBoxDTraceCmd\VBoxDTraceCmd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ItemGroup>
+    <ClCompile Include="..\vbox\src\VBox\ExtPacks\VBoxDTrace\onnv\cmd\dtrace\dtrace.c" />
+    <ClCompile Include="..\vbox\src\VBox\ExtPacks\VBoxDTrace\onnv\lib\libdtrace\common\dt_as.c" />
+    <ClCompile Include="..\vbox\src\VBox\ExtPacks\VBoxDTrace\onnv\lib\libdtrace\common\dt_aggregate.c" />
+    <ClCompile Include="..\vbox\src\VBox\ExtPacks\VBoxDTrace\onnv\lib\libdtrace\common\dt_buf.c" />
+    <ClCompile Include="..\vbox\src\VBox\ExtPacks\VBoxDTrace\onnv\lib\libdtrace\common\dt_cc.c" />
+    <ClCompile Include="..\vbox\src\VBox\ExtPacks\VBoxDTrace\onnv\lib\libdtrace\common\dt_cg.c" />
+    <ClCompile Include="..\vbox\src\VBox\ExtPacks\VBoxDTrace\onnv\lib\libdtrace\common\dt_consume.c" />
+    <ClCompile Include="..\vbox\src\VBox\ExtPacks\VBoxDTrace\onnv\lib\libdtrace\common\dt_decl.c" />
+    <ClCompile Include="..\vbox\src\VBox\ExtPacks\VBoxDTrace\onnv\lib\libdtrace\common\dt_dis.c" />
+    <ClCompile Include="..\vbox\src\VBox\ExtPacks\VBoxDTrace\onnv\lib\libdtrace\common\dt_dof.c" />
+    <ClCompile Include="..\vbox\src\VBox\ExtPacks\VBoxDTrace\onnv\lib\libdtrace\common\dt_error.c" />
+    <ClCompile Include="..\vbox\src\VBox\ExtPacks\VBoxDTrace\onnv\lib\libdtrace\common\dt_handle.c" />
+    <ClCompile Include="..\vbox\src\VBox\ExtPacks\VBoxDTrace\onnv\lib\libdtrace\common\dt_ident.c" />
+    <ClCompile Include="..\vbox\src\VBox\ExtPacks\VBoxDTrace\onnv\lib\libdtrace\common\dt_inttab.c" />
+    <ClCompile Include="..\vbox\src\VBox\ExtPacks\VBoxDTrace\onnv\lib\libdtrace\common\dt_list.c" />
+    <ClCompile Include="..\vbox\src\VBox\ExtPacks\VBoxDTrace\onnv\lib\libdtrace\common\dt_map.c" />
+    <ClCompile Include="..\vbox\src\VBox\ExtPacks\VBoxDTrace\onnv\lib\libdtrace\common\dt_module.c" />
+    <ClCompile Include="..\vbox\src\VBox\ExtPacks\VBoxDTrace\onnv\lib\libdtrace\common\dt_program.c" />
+    <ClCompile Include="..\vbox\src\VBox\ExtPacks\VBoxDTrace\onnv\lib\libdtrace\common\dt_open.c" />
+    <ClCompile Include="..\vbox\src\VBox\ExtPacks\VBoxDTrace\onnv\lib\libdtrace\common\dt_options.c" />
+    <ClCompile Include="..\vbox\src\VBox\ExtPacks\VBoxDTrace\onnv\lib\libdtrace\common\dt_parser.c" />
+    <ClCompile Include="..\vbox\src\VBox\ExtPacks\VBoxDTrace\onnv\lib\libdtrace\common\dt_pcb.c" />
+    <ClCompile Include="..\vbox\src\VBox\ExtPacks\VBoxDTrace\onnv\lib\libdtrace\common\dt_pragma.c" />
+    <ClCompile Include="..\vbox\src\VBox\ExtPacks\VBoxDTrace\onnv\lib\libdtrace\common\dt_printf.c" />
+    <ClCompile Include="..\vbox\src\VBox\ExtPacks\VBoxDTrace\onnv\lib\libdtrace\common\dt_proc.c" />
+    <ClCompile Include="..\vbox\src\VBox\ExtPacks\VBoxDTrace\onnv\lib\libdtrace\common\dt_provider.c" />
+    <ClCompile Include="..\vbox\src\VBox\ExtPacks\VBoxDTrace\onnv\lib\libdtrace\common\dt_regset.c" />
+    <ClCompile Include="..\vbox\src\VBox\ExtPacks\VBoxDTrace\onnv\lib\libdtrace\common\dt_string.c" />
+    <ClCompile Include="..\vbox\src\VBox\ExtPacks\VBoxDTrace\onnv\lib\libdtrace\common\dt_strtab.c" />
+    <ClCompile Include="..\vbox\src\VBox\ExtPacks\VBoxDTrace\onnv\lib\libdtrace\common\dt_subr.c" />
+    <ClCompile Include="..\vbox\src\VBox\ExtPacks\VBoxDTrace\onnv\lib\libdtrace\common\dt_work.c" />
+    <ClCompile Include="..\vbox\src\VBox\ExtPacks\VBoxDTrace\onnv\lib\libdtrace\common\dt_xlator.c" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxDTraceCmd\dt_errtags.c" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxDTraceCmd\dt_names.c" />
+    <ClCompile Include="..\vbox\src\VBox\ExtPacks\VBoxDTrace\onnv\common\ctf\ctf_create.c" />
+    <ClCompile Include="..\vbox\src\VBox\ExtPacks\VBoxDTrace\onnv\common\ctf\ctf_error.c" />
+    <ClCompile Include="..\vbox\src\VBox\ExtPacks\VBoxDTrace\onnv\common\ctf\ctf_decl.c" />
+    <ClCompile Include="..\vbox\src\VBox\ExtPacks\VBoxDTrace\onnv\common\ctf\ctf_hash.c" />
+    <ClCompile Include="..\vbox\src\VBox\ExtPacks\VBoxDTrace\onnv\common\ctf\ctf_labels.c" />
+    <ClCompile Include="..\vbox\src\VBox\ExtPacks\VBoxDTrace\onnv\common\ctf\ctf_lookup.c" />
+    <ClCompile Include="..\vbox\src\VBox\ExtPacks\VBoxDTrace\onnv\common\ctf\ctf_open.c" />
+    <ClCompile Include="..\vbox\src\VBox\ExtPacks\VBoxDTrace\onnv\common\ctf\ctf_types.c" />
+    <ClCompile Include="..\vbox\src\VBox\ExtPacks\VBoxDTrace\onnv\common\ctf\ctf_util.c" />
+    <ClCompile Include="..\vbox\src\VBox\ExtPacks\VBoxDTrace\onnv\lib\libctf\common\ctf_subr.c" />
+    <ClCompile Include="..\vbox\src\VBox\ExtPacks\VBoxDTrace\onnv\lib\libctf\common\ctf_lib.c" />
+    <ClCompile Include="..\vbox\src\VBox\ExtPacks\VBoxDTrace\generated\dt_grammar.c" />
+    <ClCompile Include="..\vbox\src\VBox\ExtPacks\VBoxDTrace\generated\dt_lex.c" />
+    <ClCompile Include="..\vbox\src\VBox\Artwork\win\TemplateDll.rc" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>015eba94-17e8-4dce-9240-2dd7ebc71cae</ProjectGuid>
+    <RootNamespace>VBoxDD</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+    <IncludePath>..\vbox\src\VBox\Devices\build;..\vbox\src\VBox\Devices\Network\slirp;..\vbox\src\VBox\Devices\Network;..\vbox\src\VBox\Devices\Network\lwip-new\src\include;..\vbox\src\VBox\Devices\Network\lwip-new\src\include\ipv4;..\vbox\src\VBox\Devices\Network\lwip-new\src\include\ipv6;..\vbox\src\VBox\Devices\Network\lwip-new\vbox\include;..\vbox\src\VBox\Devices\Network\lwip-new\vbox;..\vbox\out\win.amd64\release\obj\VBoxDD\dtrace;..\VS_LINK\VC\include;..\VS_LINK\VC\atlmfc\include;..\SDK_LINK\Include;..\WDK_LINK\inc\api;..\WDK_LINK\inc\ddk;..\vbox\include;..\vbox\out\win.amd64\release;..\vbox\src\VBox\Devices\Bus;..\vbox\out\win.amd64\release\obj\VgaBiosBin;..\vbox\out\win.amd64\release\obj\VBoxDD;..\vbox\src\VBox\Devices\EFI\Firmware\BaseTools\Source\C\Include\X64;..\vbox\src\VBox\Devices\EFI\Firmware\BaseTools\Source\C\Include;..\vbox\src\VBox\Devices\Network\slirp\bsd\sys;..\vbox\src\VBox\Devices\Network\slirp\bsd\sys\sys;..\vbox\src\VBox\Devices\Network\slirp\bsd\amd64\include;..\vbox\src\VBox\Devices\Network\slirp\bsd\netinet;..\vbox\src\VBox\Devices\Network\slirp\libalias;..\vbox\src\VBox\Devices\Network\slirp\dnsproxy;</IncludePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalOptions>-c -TP -nologo -O2 -Zi -Zl -GR- -EHsc -GF -MD -Zc:wchar_t- -Oy- -W4 -Wall -wd4065 -wd4996 -wd4127 -wd4706 -wd4201 -wd4214 -wd4510 -wd4512 -wd4610 -wd4514 -wd4820 -wd4365 -wd4987 -wd4710 -wd4061 -wd4986 -wd4191 -wd4574 -wd4917 -wd4711 -wd4611 -wd4571 -wd4324 -wd4505 -wd4263 -wd4264 -wd4738 -wd4242 -wd4244 -GS- -DVBOX -DVBOX_OSE -DVBOX_WITH_64_BITS_GUESTS -DVBOX_WITH_REM -DVBOX_WITH_RAW_MODE -DRT_OS_WINDOWS -D__WIN__ -DRT_ARCH_AMD64 -D__AMD64__ -D__WIN64__ -DVBOX_WITH_DEBUGGER -D_AMD64_ -DAMD64 -D_WIN64 -DIN_RING3 -DHC_ARCH_BITS=64 -DGC_ARCH_BITS=64 -DVBOX_ACPI -DVBOX_HGCM_HOST_CODE -DVBOX_WITH_HGCM -DVBOX_WITH_NEW_IOAPIC -DVBOX_WITH_DMI_CHASSIS -DVBOX_WITH_DMI_OEMSTRINGS -DVBOX_WITH_CRHGSMI -DVBOXWDDM_WITH_VBVA -DVBOX_WITH_VIDEOHWACCEL -DVBOX_WITH_HGSMI -DVBOX_WITH_WDDM -DVBOX_WITH_VMSVGA -DVBOX_WITH_VMSVGA3D -DVMSVGA3D_DIRECT3D -DVBOX_WITH_VDMA -DVBOX_WITH_PXE_ROM -DVBOX_WITH_USB -DVBOX_WITH_VUSB -DVBOX_WITH_INIP -DVBOX_WITH_E1000 -DVBOX_WITH_VIRTIO -DVBOX_WITH_UDPTUNNEL -DVBOX_WITH_NETSHAPER -DVBOX_WITH_AHCI -DIN_AHCI_R3 -DVBOX_WITH_BUSLOGIC -DVBOX_WITH_LSILOGIC -DVBOX_WITH_PDM_ASYNC_COMPLETION -DVBOX_WITH_SCSI -DVBOX_WITH_EFI -DVBOX_WITH_MSI_DEVICES -DVBOX_WITH_AUDIO_50 -DVBOX_WITH_NETFLT -D_CRT_SECURE_NO_DEPRECATE -D_WIN32_WINNT=0x0510 -DVUSB_HAVE_USBPROXY_DEVICE -DVBOX_WITH_WIN_PARPORT_SUP -DVBOX_WITH_VIRTUALKD -TC -DVBOX_WITH_DNSMAPPING_IN_HOSTRESOLVER -wd4018 -DVBOX_SLIRP_ALIAS -DVBOX_SLIRP_BSD %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ItemGroup>
+    <ClCompile Include="..\vbox\src\VBox\Devices\build\VBoxDD.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Input\DevPS2.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Input\PS2K.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Input\PS2M.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Input\UsbKbd.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Input\UsbMouse.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Bus\DevPCI.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Bus\DevPciIch9.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Bus\MsiCommon.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Bus\MsixCommon.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\EFI\DevSmc.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Graphics\DevVGA.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Storage\DevATA.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\PC\DevPit-i8254.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\PC\DevPIC.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\PC\DevACPI.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\PC\ACPI\VBoxAcpi.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\PC\DevRTC.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\PC\DevPcBios.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\PC\DevFwCommon.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\PC\DevPcArch.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\GIMDev\GIMDev.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\GIMDev\DrvUDP.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\VMMDev\VMMDev.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\VMMDev\VMMDevHGCM.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\VMMDev\VMMDevTesting.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\DevPCNet.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\PC\DevDMA.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\PC\DevHPET.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\PC\DevIoApic.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Storage\DevFdc.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Serial\DevSerial.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Parallel\DevParallel.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Input\DrvKeyboardQueue.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Input\DrvMouseQueue.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\DrvIntNet.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\DrvDedicatedNic.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\PC\DrvACPI.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\PC\DrvAcpiCpu.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Serial\DrvChar.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Serial\DrvNamedPipe.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Serial\DrvTCP.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Serial\DrvRawFile.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Storage\Debug.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Storage\DrvVD.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Storage\ATAPIPassthrough.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Storage\IOBufMgmt.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\DrvNetSniffer.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\Pcap.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Storage\DrvHostBase.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Storage\DrvHostDVD.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Storage\DrvHostFloppy.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Storage\HBDMgmt-generic.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Graphics\DevVGA_VBVA.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Graphics\HGSMI\HGSMIHost.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Graphics\HGSMI\SHGSMIHost.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Graphics\DevVGA-SVGA.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Graphics\DevVGA-SVGA3d.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Graphics\DevVGA-SVGA3d-info.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Graphics\DevVGA-SVGA3d-shared.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Graphics\DevVGA-SVGA3d-savedstate.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Graphics\DevVGA-SVGA3d-win.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Graphics\DevVGA_VDMA.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\USB\vrdp\USBProxyDevice-vrdp.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\USB\usbip\USBProxyDevice-usbip.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Storage\UsbMsd.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\USB\DevOHCI.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\USB\DrvVUSBRootHub.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\USB\VUSBBufferedPipe.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\USB\VUSBDevice.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\USB\VUSBSniffer.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\USB\VUSBSnifferPcapNg.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\USB\VUSBSnifferUsbMon.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\USB\VUSBSnifferVmx.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\USB\VUSBUrb.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\USB\VUSBUrbPool.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\USB\VUSBUrbTrace.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\DevINIP.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\lwip-new\src\api\api_lib.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\lwip-new\src\api\api_msg.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\lwip-new\src\api\err.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\lwip-new\src\api\netbuf.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\lwip-new\src\api\netdb.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\lwip-new\src\api\netifapi.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\lwip-new\src\api\sockets.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\lwip-new\src\api\tcpip.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\lwip-new\src\core\def.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\lwip-new\src\core\dhcp.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\lwip-new\src\core\dns.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\lwip-new\src\core\inet_chksum.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\lwip-new\src\core\init.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\lwip-new\src\core\ipv4\autoip.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\lwip-new\src\core\ipv4\icmp.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\lwip-new\src\core\ipv4\igmp.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\lwip-new\src\core\ipv4\ip4.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\lwip-new\src\core\ipv4\ip4_addr.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\lwip-new\src\core\ipv4\ip_frag.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\lwip-new\src\core\ipv6\dhcp6.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\lwip-new\src\core\ipv6\ethip6.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\lwip-new\src\core\ipv6\icmp6.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\lwip-new\src\core\ipv6\inet6.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\lwip-new\src\core\ipv6\ip6.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\lwip-new\src\core\ipv6\ip6_addr.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\lwip-new\src\core\ipv6\ip6_frag.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\lwip-new\src\core\ipv6\mld6.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\lwip-new\src\core\ipv6\nd6.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\lwip-new\src\core\mem.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\lwip-new\src\core\memp.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\lwip-new\src\core\netif.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\lwip-new\src\core\pbuf.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\lwip-new\src\core\raw.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\lwip-new\src\core\stats.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\lwip-new\src\core\sys.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\lwip-new\src\core\tcp.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\lwip-new\src\core\tcp_in.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\lwip-new\src\core\tcp_out.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\lwip-new\src\core\timers.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\lwip-new\src\core\udp.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\lwip-new\src\netif\etharp.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\lwip-new\vbox\sys_arch.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\lwip-new\vbox\VBoxLwipCore.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\DevE1000.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\DevE1000Phy.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\DevEEPROM.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\VirtIO\Virtio.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\DevVirtioNet.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\DrvUDPTunnel.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\DrvNetShaper.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Storage\DevAHCI.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Storage\DevBusLogic.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Storage\VBoxSCSI.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Storage\DevLsiLogicSCSI.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Storage\DrvSCSI.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\EFI\DevEFI.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Audio_50\DevIchAc97.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Audio_50\DevSB16.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Audio_50\DevHDA.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Audio_50\HDACodec.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Audio_50\AudioMixBuffer.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Audio_50\AudioMixer.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Audio_50\DrvAudio.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Audio_50\DrvAudioCommon.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Audio_50\DrvHostNullAudio.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Audio_50\DrvHostDSound.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\DrvNAT.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\slirp\bootp.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\slirp\debug.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\slirp\ip_icmp.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\slirp\ip_input.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\slirp\ip_output.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\slirp\misc.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\slirp\sbuf.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\slirp\slirp.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\slirp\slirp_dns.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\slirp\socket.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\slirp\tcp_input.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\slirp\tcp_output.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\slirp\tcp_subr.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\slirp\tcp_timer.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\slirp\udp.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\slirp\hostres.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\slirp\dnsproxy\hash.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\slirp\tftp.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\slirp\dnsproxy\dnsproxy.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\slirp\ip_icmpwin.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\slirp\libalias\alias.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\slirp\libalias\alias_db.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\slirp\libalias\alias_mod.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\slirp\libalias\alias_proxy.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\slirp\libalias\alias_ftp.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\slirp\libalias\alias_nbt.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\slirp\libalias\alias_util.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\slirp\bsd\kern\kern_mbuf.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\slirp\bsd\kern\uipc_mbuf.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\slirp\bsd\kern\uipc_mbuf2.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\slirp\bsd\amd64\in_cksum.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\USB\USBProxyDevice.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\USB\win\USBProxyDevice-win.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Serial\DrvHostSerial.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Parallel\DrvHostParallel.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Misc\VirtualKD.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Artwork\win\TemplateDll.rc" />
+  </ItemGroup>
+</Project>

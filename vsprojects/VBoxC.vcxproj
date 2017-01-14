@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>9b7930ea-01fc-4662-9fe0-d3c3eb64188a</ProjectGuid>
+    <RootNamespace>VBoxC</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+    <IncludePath>..\vbox\out\win.amd64\release\obj\VBoxCOM;..\vbox\src\VBox\Main;..\vbox\src\VBox\Main\include;..\vbox\out\win.amd64\release\obj\VBoxC;..\vbox\out\win.amd64\release\obj\VBoxAPIWrap;..\vbox\out\win.amd64\release\obj\Main;..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\dtrace;..\vbox_sdk\bindings\mscom\include;..\vbox\out\win.amd64\release\obj\VBoxC\dtrace;..\vbox\src\libs\libpng-1.2.54;..\vbox\src\libs\zlib-1.2.8;..\VS_LINK\VC\include;..\VS_LINK\VC\atlmfc\include;..\SDK_LINK\Include;..\WDK_LINK\inc\api;..\WDK_LINK\inc\ddk;..\vbox\include;..\vbox\out\win.amd64\release;</IncludePath>
+    <LibraryPath>..\SDK_LINK\Lib\x64;..\WDK_LINK\lib\wlh\amd64;..\vbox\out\win.amd64\release\obj\VBoxC;</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalOptions>-c -TP -nologo -O2 -Zi -Zl -GR -EHsc -GF -MD -Zc:wchar_t- -Oy- -W4 -Wall -wd4065 -wd4996 -wd4127 -wd4706 -wd4201 -wd4214 -wd4510 -wd4512 -wd4610 -wd4514 -wd4820 -wd4365 -wd4987 -wd4710 -wd4061 -wd4986 -wd4191 -wd4574 -wd4917 -wd4711 -wd4611 -wd4571 -wd4324 -wd4505 -wd4263 -wd4264 -wd4738 -wd4242 -wd4244 -wd4625 -wd4626 -wd4355 -DVBOX -DVBOX_OSE -DVBOX_WITH_64_BITS_GUESTS -DVBOX_WITH_REM -DVBOX_WITH_RAW_MODE -DRT_OS_WINDOWS -D__WIN__ -DRT_ARCH_AMD64 -D__AMD64__ -D__WIN64__ -DVBOX_WITH_DEBUGGER -D_AMD64_ -DAMD64 -D_WIN64 -DIN_RING3 -DUNICODE -DNDEBUG=1 -DVBOX_WITH_RAW_RING1 -DVBOX_WITH_VMSVGA -DVBOX_WITH_VMSVGA3D -DVBOX_WITH_NETFLT -DVBOX_WITH_CROGL -DVBOX_WITH_CRHGSMI -DVBOX_WITH_GUEST_PROPS -DVBOX_WITH_GUEST_CONTROL -DVBOX_WITH_USB_CARDREADER -DVBOX_WITH_HOSTNETIF_API -DVBOX_WITH_MIDL_PROXY_STUB -DVBOX_WITH_NEW_SYS_V_KEYGEN -DVBOX_COM_INPROC -DVBOX_WITH_HGCM -DVBOX_WITH_VRDE_AUDIO -DVBOX_WITH_E1000 -DVBOX_WITH_VIRTIO -DVBOX_WITH_EFI -DVBOX_WITH_PDM_ASYNC_COMPLETION -DVBOX_WITH_VUSB -DVBOX_WITH_HGSMI -DVBOX_WITH_VIDEOHWACCEL -DVBOX_WITH_DRAG_AND_DROP -DVBOX_WITH_DRAG_AND_DROP_GH -DVBOX_WITH_USB -DVBOX_WITH_EHCI -DVBOX_WITH_EXTPACK -DVBOX_WITH_PCI_PASSTHROUGH -DVBOX_WITH_VRDEAUTH_IN_VBOXSVC -DVBOX_WITH_NETSHAPER -DVBOX_WITH_AUDIO_50 -D_UNICODE -D_WIN32_WINNT=0x0510 %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>D:\EZBUILD\vbox\out\win.amd64\release\obj\VBoxC\VBoxC.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ItemGroup>
+    <ClCompile Include="..\vbox\src\VBox\Main\src-all\DisplayPNGUtil.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Main\src-all\DisplayResampleImage.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Main\src-all\DisplayUtils.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Main\src-all\EventImpl.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Main\src-all\Global.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Main\src-all\HashedPw.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Main\src-all\Logging.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Main\src-all\PCIDeviceAttachmentImpl.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Main\src-all\ProgressImpl.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Main\src-all\SecretKeyStore.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Main\src-all\SharedFolderImpl.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Main\src-all\AutoCaller.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Main\src-all\ThreadTask.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Main\src-all\VirtualBoxBase.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Main\src-all\VirtualBoxErrorInfoImpl.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Main\src-all\ExtPackManagerImpl.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Main\src-all\ExtPackUtil.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Main\src-client\UsbWebcamInterface.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Main\src-client\UsbCardReader.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Main\src-client\Nvram.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Main\src-client\AdditionsFacilityImpl.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Main\src-client\BusAssignmentManager.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Main\src-client\PCIRawDevImpl.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Main\src-client\ClientTokenHolder.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Main\src-client\ConsoleImpl.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Main\src-client\ConsoleImpl2.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Main\src-client\ConsoleImplTeleporter.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Main\src-client\ConsoleVRDPServer.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Main\src-client\DisplayImpl.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Main\src-client\DisplayImplLegacy.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Main\src-client\DisplaySourceBitmapImpl.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Main\src-client\EmulatedUSBImpl.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Main\src-client\GuestImpl.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Main\src-client\GuestCtrlImpl.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Main\src-client\KeyboardImpl.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Main\src-client\MachineDebuggerImpl.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Main\src-client\MouseImpl.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Main\src-client\RemoteUSBDeviceImpl.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Main\src-client\SessionImpl.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Main\src-client\USBDeviceImpl.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Main\src-client\VBoxDriversRegister.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Main\src-client\VirtualBoxClientImpl.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Main\src-client\VMMDevInterface.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\Main\VBoxEvents.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\Main\SchemaDefs.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Audio_50\AudioMixBuffer.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Audio_50\DrvAudioCommon.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Main\src-client\DrvAudioVRDE_50.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Main\src-client\GuestSessionImplTasks.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Main\src-client\GuestCtrlPrivate.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Main\src-client\GuestDirectoryImpl.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Main\src-client\GuestFileImpl.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Main\src-client\GuestFsObjInfoImpl.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Main\src-client\GuestProcessImpl.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Main\src-client\GuestSessionImpl.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Main\src-client\GuestDnDPrivate.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Main\src-client\GuestDnDSourceImpl.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Main\src-client\GuestDnDTargetImpl.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Main\src-client\HGCMObjects.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Main\src-client\HGCMThread.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Main\src-client\HGCM.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Main\src-client\RemoteUSBBackend.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Main\src-client\win\dllmain.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Main\src-client\win\VBoxC.rc" />
+  </ItemGroup>
+</Project>

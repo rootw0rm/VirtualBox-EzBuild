@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>61da2f32-4d87-43f9-b5c4-6864461e7f7b</ProjectGuid>
+    <RootNamespace>VBoxRemPrimary</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalOptions>%(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ItemGroup>
+    <ClCompile Include="..\vbox\src\recompiler\VBoxRecompiler.c" />
+    <ClCompile Include="..\vbox\src\recompiler\cpu-exec.c" />
+    <ClCompile Include="..\vbox\src\recompiler\exec.c" />
+    <ClCompile Include="..\vbox\src\recompiler\translate-all.c" />
+    <ClCompile Include="..\vbox\src\recompiler\host-utils.c" />
+    <ClCompile Include="..\vbox\src\recompiler\cutils.c" />
+    <ClCompile Include="..\vbox\src\recompiler\tcg-runtime.c" />
+    <ClCompile Include="..\vbox\src\recompiler\tcg\tcg.c" />
+    <ClCompile Include="..\vbox\src\recompiler\tcg\tcg-dyngen.c" />
+    <ClCompile Include="..\vbox\src\recompiler\fpu\softfloat-native.c" />
+    <ClCompile Include="..\vbox\src\recompiler\target-i386\op_helper.c" />
+    <ClCompile Include="..\vbox\src\recompiler\target-i386\helper.c" />
+    <ClCompile Include="..\vbox\src\recompiler\target-i386\translate.c" />
+  </ItemGroup>
+</Project>

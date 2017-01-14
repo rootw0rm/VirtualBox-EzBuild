@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>2759a4c2-5e9d-4c6d-b2a0-ce8d892816e2</ProjectGuid>
+    <RootNamespace>VBox-kStuff</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+    <IncludePath>..\vbox\src\libs\kStuff\kStuff\include;..\vbox\out\win.amd64\release\obj\VBox-kStuff;..\vbox\out\win.amd64\release\obj\VBox-kStuff\dtrace;..\VS_LINK\VC\include;..\VS_LINK\VC\atlmfc\include;..\SDK_LINK\Include;..\vbox\include;..\vbox\out\win.amd64\release;</IncludePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalOptions>-c -TC -nologo -O2 -Zi -Zl -GR- -EHsc -GF -MD -Zc:wchar_t- -Oy- -W4 -Wall -wd4065 -wd4996 -wd4127 -wd4706 -wd4201 -wd4214 -wd4510 -wd4512 -wd4610 -wd4514 -wd4820 -wd4365 -wd4987 -wd4710 -wd4061 -wd4986 -wd4191 -wd4574 -wd4917 -wd4711 -wd4611 -wd4571 -wd4324 -wd4505 -wd4263 -wd4264 -wd4738 -wd4242 -wd4244 -DVBOX -DVBOX_OSE -DVBOX_WITH_64_BITS_GUESTS -DVBOX_WITH_REM -DVBOX_WITH_RAW_MODE -DRT_OS_WINDOWS -D__WIN__ -DRT_ARCH_AMD64 -D__AMD64__ -D__WIN64__ -DVBOX_WITH_DEBUGGER -DIN_RING3 -DHC_ARCH_BITS=64 -DGC_ARCH_BITS=64 -DIN_RT_R3 -D_CRT_SECURE_NO_DEPRECATE -TP %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ItemGroup>
+    <ClCompile Include="..\vbox\src\libs\kStuff\kStuff\kLdr\kLdrMod.c" />
+    <ClCompile Include="..\vbox\src\libs\kStuff\kStuff\kLdr\kLdrModLX.c" />
+    <ClCompile Include="..\vbox\src\libs\kStuff\kStuff\kLdr\kLdrModMachO.c" />
+    <ClCompile Include="..\vbox\src\libs\kStuff\kStuff\kLdr\kLdrModPE.c" />
+    <ClCompile Include="..\vbox\src\libs\kStuff\kStuff\kRdr\kRdr.cpp" />
+    <ClCompile Include="..\vbox\src\libs\kStuff\kStuff\kRdr\kRdrBuffered.cpp" />
+    <ClCompile Include="..\vbox\src\libs\kStuff\kStuff\kCpu\kCpuCompare.c" />
+    <ClCompile Include="..\vbox\src\libs\kStuff\kStuff\kCpu\kCpuGetArchAndCpu.c" />
+    <ClCompile Include="..\vbox\src\libs\kStuff\kStuff\kErr\kErrName.c" />
+    <ClCompile Include="..\vbox\src\libs\kStuff\kStuff\kHlp\Generic\kHlpMemPComp.c" />
+    <ClCompile Include="..\vbox\src\libs\kStuff\kStuff\kHlp\Generic\kHlpMemICompAscii.c" />
+    <ClCompile Include="..\vbox\src\libs\kStuff\kStuff\kHlp\Generic\kHlpStrPCat.c" />
+    <ClCompile Include="..\vbox\src\libs\kStuff\kStuff\kHlp\Generic\kHlpStrNPCat.c" />
+    <ClCompile Include="..\vbox\src\libs\kStuff\kStuff\kHlp\Generic\kHlpStrPComp.c" />
+    <ClCompile Include="..\vbox\src\libs\kStuff\kStuff\kHlp\Generic\kHlpStrNPComp.c" />
+    <ClCompile Include="..\vbox\src\libs\kStuff\kStuff\kHlp\Generic\kHlpStrICompAscii.c" />
+    <ClCompile Include="..\vbox\src\libs\kStuff\kStuff\kHlp\Generic\kHlpStrIPCompAscii.c" />
+    <ClCompile Include="..\vbox\src\libs\kStuff\kStuff\kHlp\Generic\kHlpStrNICompAscii.c" />
+    <ClCompile Include="..\vbox\src\libs\kStuff\kStuff\kHlp\Generic\kHlpStrNIPCompAscii.c" />
+    <ClCompile Include="..\vbox\src\libs\kStuff\kStuff\kHlp\Generic\kHlpStrPCopy.c" />
+    <ClCompile Include="..\vbox\src\libs\kStuff\kStuff\kHlp\Generic\kHlpStrNLen.c" />
+    <ClCompile Include="..\vbox\src\libs\kStuff\kStuff\kHlp\Generic\kHlpInt2Ascii.c" />
+    <ClCompile Include="..\vbox\src\libs\kStuff\kStuff\kHlp\Generic\kHlpGetEnvUZ.c" />
+    <ClCompile Include="..\vbox\src\libs\kStuff\kStuff\kHlp\Generic\kHlpGetExt.c" />
+    <ClCompile Include="..\vbox\src\libs\kStuff\kStuff\kHlp\Generic\kHlpGetFilename.c" />
+    <ClCompile Include="..\vbox\src\libs\kStuff\kStuff\kHlp\Generic\kHlpIsFilenameOnly.c" />
+    <ClCompile Include="..\vbox\src\libs\kStuff\iprt\kHlpPage-iprt.cpp" />
+    <ClCompile Include="..\vbox\src\libs\kStuff\iprt\kHlpAlloc-iprt.cpp" />
+    <ClCompile Include="..\vbox\src\libs\kStuff\iprt\kHlpAssert-iprt.cpp" />
+    <ClCompile Include="..\vbox\src\libs\kStuff\iprt\kHlpEnv-iprt.cpp" />
+    <ClCompile Include="..\vbox\src\libs\kStuff\iprt\kHlpString-iprt.cpp" />
+    <ClCompile Include="..\vbox\src\libs\kStuff\iprt\kRdrFile-iprt.cpp" />
+  </ItemGroup>
+</Project>

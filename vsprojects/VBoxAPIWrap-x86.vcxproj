@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>34bf438a-b101-4d41-99be-79161001b673</ProjectGuid>
+    <RootNamespace>VBoxAPIWrap-x86</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+    <IncludePath>..\vbox\src\VBox\Main\include;..\vbox_sdk\bindings\mscom\include;..\vbox\out\win.amd64\release\obj\VBoxAPIWrap-x86\dtrace;..\VS_LINK\VC\include;..\VS_LINK\VC\atlmfc\include;..\SDK_LINK\Include;..\WDK_LINK\inc\api;..\WDK_LINK\inc\ddk;..\vbox\include;..\vbox\out\win.amd64\release;</IncludePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalOptions>-c -TP -nologo -O2 -Zi -Zl -GR -EHsc -GF -MD -Zc:wchar_t- -Oy- -W4 -Wall -wd4065 -wd4996 -wd4127 -wd4706 -wd4201 -wd4214 -wd4510 -wd4512 -wd4610 -wd4514 -wd4820 -wd4365 -wd4987 -wd4710 -wd4061 -wd4986 -wd4191 -wd4574 -wd4917 -wd4711 -wd4611 -wd4571 -wd4324 -wd4505 -wd4263 -wd4264 -wd4738 -wd4242 -wd4244 -wd4625 -wd4626 -wd4355 -DVBOX -DVBOX_OSE -DVBOX_WITH_64_BITS_GUESTS -DVBOX_WITH_REM -DVBOX_WITH_RAW_MODE -DRT_OS_WINDOWS -D__WIN__ -DRT_ARCH_X86 -D__X86__ -D__WIN32__ -DVBOX_WITH_DEBUGGER -D_X86_=1 -Di386=1 -DSTD_CALL -DIN_RING3 -DUNICODE -DNDEBUG=1 -DHC_ARCH_BIT=32 -DARCH_BITS=32 -DVBOX_IN_32_ON_64_MAIN_API -D_UNICODE -D_WIN32_WINNT=0x0500 %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ItemGroup>
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\DHCPServerWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\ApplianceWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\PCIAddressWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\EmulatedUSBWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\ConsoleWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\HostNetworkInterfaceWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\HostWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\GuestOSTypeWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\AdditionsFacilityWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\DnDSourceWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\DnDTargetWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\GuestSessionWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\GuestProcessWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\GuestDirectoryWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\GuestFileWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\GuestFsObjInfoWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\ProgressWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\MediumWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\MediumFormatWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\MousePointerShapeWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\DisplaySourceBitmapWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\FramebufferWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\GuestScreenInfoWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\ParallelPortWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\USBDeviceFiltersWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\USBControllerWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\USBDeviceWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\USBProxyBackendWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\AudioAdapterWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\VRDEServerWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\SessionWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\StorageControllerWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\PerformanceMetricWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\NATEngineWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\ExtPackBaseWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\ExtPackFileWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\BandwidthControlWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\EventListenerWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\ReusableEventWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\MachineStateChangedEventWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\MediumRegisteredEventWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\MachineRegisteredEventWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\GuestPropertyChangedEventWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\SnapshotTakenEventWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\SnapshotRestoredEventWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\MousePointerShapeChangedEventWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\KeyboardLedsChangedEventWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\AdditionsStateChangedEventWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\SerialPortChangedEventWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\StorageControllerChangedEventWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\ClipboardModeChangedEventWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\CPUChangedEventWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\GuestKeyboardEventWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\GuestMouseEventWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\GuestSessionEventWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\GuestSessionRegisteredEventWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\GuestProcessRegisteredEventWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\GuestProcessIOEventWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\GuestProcessOutputEventWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\GuestFileRegisteredEventWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\GuestFileIOEventWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\GuestFileReadEventWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\VRDEServerChangedEventWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\VideoCaptureChangedEventWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\USBDeviceStateChangedEventWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\RuntimeErrorEventWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\ExtraDataChangedEventWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\ExtraDataCanChangeEventWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\ShowWindowEventWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\HostPCIDevicePlugEventWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\BandwidthGroupChangedEventWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\GuestMonitorChangedEventWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\StorageDeviceChangedEventWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\NATNetworkStartStopEventWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\NATNetworkCreationDeletionEventWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\NATNetworkPortForwardEventWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\NATNetworkWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\VirtualBoxWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\VFSExplorerWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\CertificateWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\VirtualSystemDescriptionWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\BIOSSettingsWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\PCIDeviceAttachmentWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\MachineWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\VRDEServerInfoWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\HostVideoInputDeviceWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\SystemPropertiesWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\DnDBaseWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\GuestDnDSourceWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\GuestDnDTargetWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\ProcessWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\DirectoryWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\FileWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\FsObjInfoWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\GuestWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\SnapshotWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\MediumAttachmentWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\TokenWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\KeyboardWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\MouseWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\FramebufferOverlayWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\DisplayWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\NetworkAdapterWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\SerialPortWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\MachineDebuggerWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\USBDeviceFilterWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\HostUSBDeviceWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\HostUSBDeviceFilterWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\SharedFolderWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\PerformanceCollectorWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\ExtPackPlugInWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\ExtPackWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\ExtPackManagerWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\BandwidthGroupWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\VirtualBoxClientWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\EventSourceWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\EventWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\MachineEventWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\MachineDataChangedEventWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\MediumConfigChangedEventWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\SessionStateChangedEventWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\SnapshotEventWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\SnapshotDeletedEventWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\SnapshotChangedEventWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\MouseCapabilityChangedEventWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\StateChangedEventWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\NetworkAdapterChangedEventWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\ParallelPortChangedEventWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\MediumChangedEventWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\DnDModeChangedEventWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\CPUExecutionCapChangedEventWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\GuestMultiTouchEventWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\GuestSessionStateChangedEventWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\GuestProcessEventWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\GuestProcessStateChangedEventWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\GuestProcessInputNotifyEventWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\GuestFileEventWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\GuestFileStateChangedEventWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\GuestFileOffsetChangedEventWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\GuestFileWriteEventWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\VRDEServerInfoChangedEventWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\USBControllerChangedEventWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\SharedFolderChangedEventWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\EventSourceChangedEventWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\VetoEventWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\CanShowWindowEventWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\NATRedirectEventWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\VBoxSVCAvailabilityChangedEventWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\GuestUserStateChangedEventWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\NATNetworkChangedEventWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\NATNetworkAlterEventWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\NATNetworkSettingEventWrap.cpp" />
+    <ClCompile Include="..\vbox\out\win.amd64\release\obj\VBoxAPIWrap\HostNameResolutionConfigurationChangeEventWrap.cpp" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>6d485373-cfc7-4c9c-be63-553b47c12ffb</ProjectGuid>
+    <RootNamespace>RuntimeRC</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+    <IncludePath>..\vbox\src\VBox\Runtime\include;..\vbox\include\iprt\nocrt;..\vbox\out\win.amd64\release\obj\RuntimeRC\dtrace;..\vbox\include;..\vbox\out\win.amd64\release;..\VS_LINK\VC\include;..\VS_LINK\VC\atlmfc\include;</IncludePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalOptions>-c -TP -nologo -O2 -Zi -Zl -GR- -EHs- -GF -GS- -Zc:wchar_t- -Gs8192 -Oy- -W4 -Wall -wd4065 -wd4996 -wd4127 -wd4706 -wd4201 -wd4214 -wd4510 -wd4512 -wd4610 -wd4514 -wd4820 -wd4365 -wd4987 -wd4710 -wd4061 -wd4986 -wd4191 -wd4574 -wd4917 -wd4711 -wd4611 -wd4571 -wd4324 -wd4505 -wd4263 -wd4264 -wd4738 -wd4242 -wd4244 -DVBOX -DVBOX_OSE -DVBOX_WITH_64_BITS_GUESTS -DVBOX_WITH_REM -DVBOX_WITH_RAW_MODE -DRT_OS_WINDOWS -D__WIN__ -DRT_ARCH_X86 -D__X86__ -D__WIN32__ -DVBOX_WITH_DEBUGGER -DIN_RC -DIPRT_NO_CRT -DRT_WITH_NOCRT_ALIASES -DHC_ARCH_BITS=64 -DGC_ARCH_BITS=64 -DIN_RT_RC -DRT_WITH_VBOX -DIN_SUP_RC -DIN_VMM_RC -DNOFILEID -DIPRT_BLDCFG_SCM_REV=112440 -DIPRT_BLDCFG_VERSION_STRING=\"5.1.12\" -DIPRT_BLDCFG_VERSION_MAJOR=5 -DIPRT_BLDCFG_VERSION_MINOR=1 -DIPRT_BLDCFG_VERSION_BUILD=12 -DIPRT_BLDCFG_TARGET=\"win\" -DIPRT_BLDCFG_TARGET_ARCH=\"amd64\" -DIPRT_BLDCFG_TYPE=\"release\" -TC %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ItemGroup>
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\asm\ASMMemFirstMismatchingU8.asm" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\asm\ASMGetXcr0.asm" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\asm\ASMSetXcr0.asm" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\asm\ASMXSave.asm" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\asm\ASMXRstor.asm" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\checksum\alt-md5.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\checksum\crc32.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\checksum\crc64.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\log\log.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\log\logellipsis.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\log\logrel.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\log\logrelellipsis.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\log\logcom.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\log\logformat.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\log\tracebuf.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\log\tracedefault.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\misc\RTAssertMsg1Weak.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\misc\RTAssertMsg2.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\misc\RTAssertMsg2Add.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\misc\RTAssertMsg2AddWeak.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\misc\RTAssertMsg2AddWeakV.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\misc\RTAssertMsg2Weak.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\misc\RTAssertMsg2WeakV.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\misc\assert.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\misc\buildconfig.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\misc\sanity-c.c" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\misc\sanity-cpp.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\path\RTPathFilename.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\string\strformat.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\string\strformatnum.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\string\strformatrt.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\string\strformattype.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\string\strncmp.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\string\strpbrk.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\string\strprintf.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\string\RTStrCopy.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\string\RTStrCopyEx.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\table\avllu32.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\table\avlou32.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\table\avlogcphys.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\table\avlogcptr.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\table\avlohcphys.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\table\avloioport.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\table\avlrogcphys.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\table\avlrogcptr.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\table\avlroioport.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\table\avlroogcptr.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\table\avlu32.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\time\timeprog.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\time\timesup.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\gc\initterm-gc.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\generic\RTAssertShouldPanic-generic.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\generic\errvars-generic.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\misc\setjmp.asm" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\string\bzero.asm" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\string\memchr.asm" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\string\memcmp.asm" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\string\memcpy.asm" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\string\mempcpy.asm" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\string\memmove.asm" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\string\memset.asm" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\string\strchr.asm" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\string\strcpy.asm" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\string\strncpy.asm" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\string\strcmp.asm" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\string\strlen.asm" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\time\timesupref.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\asm\ASMAtomicCmpXchgU8.asm" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\asm\ASMAtomicCmpXchgU16.asm" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\asm\ASMAtomicXchgU16.asm" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\asm\ASMMultU32ByU32DivByU32.asm" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\asm\ASMMultU64ByU32DivByU32.asm" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\asm\ASMCpuId_Idx_ECX.asm" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\asm\ASMGetSegAttr.asm" />
+  </ItemGroup>
+</Project>

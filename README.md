@@ -31,6 +31,7 @@ What it consists of:
 * BUILDVBOX.bat
 * 7-zip, from http://7-zip.org/a/7z1604-extra.7z
 * curl, from https://bintray.com/artifact/download/vszakats/generic/curl-7.52.1-win64-mingw.7z
+* Microsoft Visual Studio 2015 project files, for coding, not building, see README.txt
 
 ---
 
@@ -53,7 +54,7 @@ https://download.microsoft.com/download/4/A/2/4A25C7D5-EFBE-4182-B6A9-AE6850409A
 http://download.microsoft.com/download/F/1/0/F10113F5-B750-4969-A255-274341AC6BCE/GRMSDKX_EN_DVD.iso
 * DirectX SDK June 2010 (will be downloaded and installed if not found)
 https://download.microsoft.com/download/A/E/7/AE743F1F-632B-4809-87A9-AA1BB3458E31/DXSDK_Jun10.exe
-* At least 4GB of drive space
+* At least 7GB of drive space
 
 ---
 

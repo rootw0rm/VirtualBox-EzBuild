@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>ff01a199-20b6-43e8-bbad-eb81ddcd5ae7</ProjectGuid>
+    <RootNamespace>VBoxSVGA3D</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+    <IncludePath>..\vbox\src\VBox\Devices\Graphics\shaderlib\libWineStub\include;..\vbox\out\win.amd64\release\obj\VBoxSVGA3D\dtrace;..\VS_LINK\VC\include;..\VS_LINK\VC\atlmfc\include;..\SDK_LINK\Include;..\vbox\include;..\vbox\out\win.amd64\release;</IncludePath>
+    <LibraryPath>..\SDK_LINK\Lib\x64;..\vbox\out\win.amd64\release\obj\VBoxSVGA3D;</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalOptions>-c -TC -nologo -O2 -Zi -Zl -GR- -EHsc -GF -MD -Zc:wchar_t- -Oy- -W4 -Wall -wd4065 -wd4996 -wd4127 -wd4706 -wd4201 -wd4214 -wd4510 -wd4512 -wd4610 -wd4514 -wd4820 -wd4365 -wd4987 -wd4710 -wd4061 -wd4986 -wd4191 -wd4574 -wd4917 -wd4711 -wd4611 -wd4571 -wd4324 -wd4505 -wd4263 -wd4264 -wd4738 -wd4242 -wd4244 -wd4100 -wd4204 -wd4245 -wd4305 -DVBOX -DVBOX_OSE -DVBOX_WITH_64_BITS_GUESTS -DVBOX_WITH_REM -DVBOX_WITH_RAW_MODE -DRT_OS_WINDOWS -D__WIN__ -DRT_ARCH_AMD64 -D__AMD64__ -D__WIN64__ -DVBOX_WITH_DEBUGGER -DIN_RING3 -DHC_ARCH_BITS=64 -DGC_ARCH_BITS=64 -D__WINESRC__ -DWINE_UNICODE_API= -D_REENTRANT -DWINE_NOWINSOCK -DVBOX_WITH_VMSVGA -DVBOX_WITH_VMSVGA3D -DDLLDIR=\"\" -DBINDIR=\"\" -DLIB_TO_BINDIR=\"\" -DLIB_TO_DLLDIR=\"\" -DBIN_TO_DLLDIR=\"\" -DLIB_TO_DATADIR=\"\" -DBIN_TO_DATADIR=\"\" -D_USE_MATH_DEFINES -DVBOX_USING_WINDDK_W7_OR_LATER -DVBOX_WINE_WITH_SINGLE_SWAPCHAIN_CONTEXT -DIN_vmsvgashader_STATIC -DIN_VMSVGA3D -DVBOX_WINE_WITH_IPRT -DWINE_NO_DEBUG_MSGS -D_CRT_SECURE_NO_DEPRECATE -DUSE_WIN32_OPENGL -DVBOX_WINE_WITHOUT_LIBWINE -D__x86_64__ %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>D:\EZBUILD\vbox\out\win.amd64\release\obj\VBoxSVGA3D\VBoxSVGA3D.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ItemGroup>
+    <ClCompile Include="..\vbox\src\VBox\Devices\Graphics\shaderlib\glsl_shader.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Graphics\shaderlib\shader.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Graphics\shaderlib\shader_sm1.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Graphics\shaderlib\shader_sm4.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Graphics\shaderlib\shaderapi.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Graphics\shaderlib\utils.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Graphics\shaderlib\stateblock.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Graphics\shaderlib\directx.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Graphics\shaderlib\libWineStub\debug.c" />
+    <ClCompile Include="..\vbox\src\VBox\Artwork\win\TemplateDll.rc" />
+  </ItemGroup>
+</Project>

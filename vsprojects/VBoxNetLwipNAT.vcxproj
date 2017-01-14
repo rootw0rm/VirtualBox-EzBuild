@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>66d05e5c-23e5-48b9-8d96-8baf4644c9bb</ProjectGuid>
+    <RootNamespace>VBoxNetLwipNAT</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+    <IncludePath>..\vbox\src\VBox\NetworkServices\NAT;..\vbox\src\VBox\Devices\Network\lwip-new\src\include;..\vbox\src\VBox\Devices\Network\lwip-new\src\include\ipv4;..\vbox\src\VBox\Devices\Network\lwip-new\src\include\ipv6;..\vbox\src\VBox\Devices\Network\lwip-new\vbox\include;..\vbox\src\VBox\Devices\Network\lwip-new\vbox;..\vbox_sdk\bindings\mscom\include;..\vbox\out\win.amd64\release\obj\VBoxNetLwipNAT\dtrace;..\VS_LINK\VC\include;..\VS_LINK\VC\atlmfc\include;..\SDK_LINK\Include;..\WDK_LINK\inc\api;..\WDK_LINK\inc\ddk;..\vbox\include;..\vbox\out\win.amd64\release;</IncludePath>
+    <LibraryPath>..\SDK_LINK\Lib\x64;..\WDK_LINK\lib\wlh\amd64;</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalOptions>-c -TP -nologo -O2 -Zi -Zl -GR -EHsc -GF -MD -Zc:wchar_t- -Oy- -W4 -Wall -wd4065 -wd4996 -wd4127 -wd4706 -wd4201 -wd4214 -wd4510 -wd4512 -wd4610 -wd4514 -wd4820 -wd4365 -wd4987 -wd4710 -wd4061 -wd4986 -wd4191 -wd4574 -wd4917 -wd4711 -wd4611 -wd4571 -wd4324 -wd4505 -wd4263 -wd4264 -wd4738 -wd4242 -wd4244 -wd4625 -wd4626 -wd4355 -DVBOX -DVBOX_OSE -DVBOX_WITH_64_BITS_GUESTS -DVBOX_WITH_REM -DVBOX_WITH_RAW_MODE -DRT_OS_WINDOWS -D__WIN__ -DRT_ARCH_AMD64 -D__AMD64__ -D__WIN64__ -DVBOX_WITH_DEBUGGER -D_AMD64_ -DAMD64 -D_WIN64 -DIN_RING3 -DUNICODE -DNDEBUG=1 -DIPv6 -D_UNICODE -DVBOX_COM_OUTOFPROC_MODULE -D_WIN32_WINNT=0x501 -TC %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ItemGroup>
+    <ClCompile Include="..\vbox\src\VBox\NetworkServices\NAT\VBoxNetLwipNAT.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\NetworkServices\NetLib\VBoxNetBaseService.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\NetworkServices\NetLib\VBoxNetPortForwardString.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\NetworkServices\NetLib\VBoxNetIntIf.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\NetworkServices\NetLib\VBoxNetUDP.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\NetworkServices\NetLib\VBoxNetARP.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\NetworkServices\NetLib\ComHostUtils.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\lwip-new\src\api\api_lib.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\lwip-new\src\api\api_msg.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\lwip-new\src\api\err.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\lwip-new\src\api\netbuf.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\lwip-new\src\api\netdb.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\lwip-new\src\api\netifapi.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\lwip-new\src\api\sockets.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\lwip-new\src\api\tcpip.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\lwip-new\src\core\def.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\lwip-new\src\core\dhcp.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\lwip-new\src\core\dns.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\lwip-new\src\core\inet_chksum.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\lwip-new\src\core\init.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\lwip-new\src\core\ipv4\autoip.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\lwip-new\src\core\ipv4\icmp.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\lwip-new\src\core\ipv4\igmp.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\lwip-new\src\core\ipv4\ip4.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\lwip-new\src\core\ipv4\ip4_addr.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\lwip-new\src\core\ipv4\ip_frag.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\lwip-new\src\core\ipv6\dhcp6.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\lwip-new\src\core\ipv6\ethip6.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\lwip-new\src\core\ipv6\icmp6.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\lwip-new\src\core\ipv6\inet6.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\lwip-new\src\core\ipv6\ip6.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\lwip-new\src\core\ipv6\ip6_addr.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\lwip-new\src\core\ipv6\ip6_frag.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\lwip-new\src\core\ipv6\mld6.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\lwip-new\src\core\ipv6\nd6.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\lwip-new\src\core\mem.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\lwip-new\src\core\memp.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\lwip-new\src\core\netif.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\lwip-new\src\core\pbuf.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\lwip-new\src\core\raw.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\lwip-new\src\core\stats.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\lwip-new\src\core\sys.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\lwip-new\src\core\tcp.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\lwip-new\src\core\tcp_in.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\lwip-new\src\core\tcp_out.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\lwip-new\src\core\timers.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\lwip-new\src\core\udp.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\lwip-new\src\netif\etharp.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\lwip-new\vbox\sys_arch.c" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\lwip-new\vbox\VBoxLwipCore.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\NetworkServices\NAT\proxy_pollmgr.c" />
+    <ClCompile Include="..\vbox\src\VBox\NetworkServices\NAT\proxy_rtadvd.c" />
+    <ClCompile Include="..\vbox\src\VBox\NetworkServices\NAT\proxy.c" />
+    <ClCompile Include="..\vbox\src\VBox\NetworkServices\NAT\pxremap.c" />
+    <ClCompile Include="..\vbox\src\VBox\NetworkServices\NAT\pxtcp.c" />
+    <ClCompile Include="..\vbox\src\VBox\NetworkServices\NAT\pxudp.c" />
+    <ClCompile Include="..\vbox\src\VBox\NetworkServices\NAT\pxdns.c" />
+    <ClCompile Include="..\vbox\src\VBox\NetworkServices\NAT\fwtcp.c" />
+    <ClCompile Include="..\vbox\src\VBox\NetworkServices\NAT\fwudp.c" />
+    <ClCompile Include="..\vbox\src\VBox\NetworkServices\NAT\portfwd.c" />
+    <ClCompile Include="..\vbox\src\VBox\NetworkServices\NAT\proxy_dhcp6ds.c" />
+    <ClCompile Include="..\vbox\src\VBox\NetworkServices\NAT\proxy_tftpd.c" />
+    <ClCompile Include="..\vbox\src\VBox\NetworkServices\NAT\pxping_win.c" />
+    <ClCompile Include="..\vbox\src\VBox\NetworkServices\NAT\VBoxNetNAT.rc" />
+    <ClCompile Include="..\vbox\src\VBox\NetworkServices\NAT\rtmon_win.c" />
+    <ClCompile Include="..\vbox\src\VBox\NetworkServices\NAT\RTWinPoll.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\NetworkServices\NAT\RTWinSocketPair.cpp" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>99ee6420-7ed0-415b-83c9-0dc037b58b8a</ProjectGuid>
+    <RootNamespace>VBoxDDR0</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+    <IncludePath>..\vbox\src\VBox\Devices\build;..\vbox\include\iprt\nocrt;..\vbox\out\win.amd64\release\obj\VBoxDDR0\dtrace;..\VS_LINK\VC\include;..\VS_LINK\VC\atlmfc\include;..\SDK_LINK\Include;..\WDK_LINK\inc\api;..\WDK_LINK\inc\ddk;..\vbox\include;..\vbox\out\win.amd64\release;..\vbox\src\VBox\Devices\Bus;..\vbox\out\win.amd64\release\obj\VgaBiosBin;</IncludePath>
+    <LibraryPath>..\SDK_LINK\Lib\x64;..\WDK_LINK\lib\wlh\amd64;</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalOptions>-c -TP -nologo -O2 -Zi -Zl -GR- -EHs- -GF -GS- -Zc:wchar_t- -Oy- -W4 -Wall -wd4065 -wd4996 -wd4127 -wd4706 -wd4201 -wd4214 -wd4510 -wd4512 -wd4610 -wd4514 -wd4820 -wd4365 -wd4987 -wd4710 -wd4061 -wd4986 -wd4191 -wd4574 -wd4917 -wd4711 -wd4611 -wd4571 -wd4324 -wd4505 -wd4263 -wd4264 -wd4738 -wd4242 -wd4244 -DVBOX -DVBOX_OSE -DVBOX_WITH_64_BITS_GUESTS -DVBOX_WITH_REM -DVBOX_WITH_RAW_MODE -DRT_OS_WINDOWS -D__WIN__ -DRT_ARCH_AMD64 -D__AMD64__ -D__WIN64__ -DVBOX_WITH_DEBUGGER -D_AMD64_ -DAMD64 -D_WIN64 -DIN_RING0 -DIN_RING0_AGNOSTIC -DIPRT_NO_CRT -DRT_WITH_NOCRT_ALIASES -DHC_ARCH_BITS=64 -DGC_ARCH_BITS=64 -DVBOX_WITH_DTRACE -DVBOX_WITH_DTRACE_R0 -DIN_RT_R0 -DVBOX_WITH_HGCM -DVBOX_WITH_AUDIO_50 -DVBOX_WITH_HGSMI -DVBOX_WITH_WDDM -DVBOX_WITH_VDMA -DVBOX_WITH_CRHGSMI -DVBOXWDDM_WITH_VBVA -DVBOX_WITH_E1000 -DVBOX_WITH_VIRTIO -DVBOX_WITH_NETSHAPER -DVBOX_WITH_VMSVGA -DVBOX_WITH_VMSVGA3D -DVBOX_WITH_VUSB -DVBOX_WITH_USB -DVBOX_WITH_AHCI -DIN_AHCI_R0 -DVBOX_WITH_BUSLOGIC -DVBOX_WITH_LSILOGIC -DVBOX_WITH_VIDEOHWACCEL -DVBOX_WITH_WIN_PARPORT_SUP %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ItemGroup>
+    <ClCompile Include="..\vbox\src\VBox\Devices\build\VBoxDDR0.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Bus\DevPCI.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Bus\DevPciIch9.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Bus\MsiCommon.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Bus\MsixCommon.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\EFI\DevSmc.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Graphics\DevVGA.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Input\DevPS2.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Input\PS2K.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Input\PS2M.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\PC\DevACPI.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\PC\DevIoApic.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\PC\DevPit-i8254.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\PC\DevPIC.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\PC\DevRTC.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\PC\DevHPET.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Storage\DevATA.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\DevPCNet.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Serial\DevSerial.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Parallel\DevParallel.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\VMMDev\VMMDevTesting.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\DrvIntNet.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\DrvDedicatedNic.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Audio_50\DevHDA.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\DevE1000.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\DevE1000Phy.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\VirtIO\Virtio.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\DevVirtioNet.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Network\DrvNetShaper.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Graphics\DevVGA-SVGA.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\USB\DevOHCI.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Storage\DevAHCI.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Storage\DevBusLogic.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Storage\DevLsiLogicSCSI.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Devices\Parallel\DrvHostParallel.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Artwork\win\TemplateR0.rc" />
+  </ItemGroup>
+</Project>

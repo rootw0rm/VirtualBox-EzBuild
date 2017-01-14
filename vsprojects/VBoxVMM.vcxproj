@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>07aabe6a-4843-4c6a-b8c0-7df287b55503</ProjectGuid>
+    <RootNamespace>VBoxVMM</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+    <IncludePath>..\vbox\src\VBox\VMM\include;..\vbox\src\VBox\VMM\PATM;..\vbox\out\win.amd64\release\obj\VBoxVMM\dtrace;..\VS_LINK\VC\include;..\VS_LINK\VC\atlmfc\include;..\SDK_LINK\Include;..\vbox\include;..\vbox\out\win.amd64\release;</IncludePath>
+    <LibraryPath>..\SDK_LINK\Lib\x64;..\vbox\out\win.amd64\release\obj\VBoxVMM;</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalOptions>-c -TP -nologo -O2 -Zi -Zl -GR- -EHsc -GF -MD -Zc:wchar_t- -Oy- -W4 -Wall -wd4065 -wd4996 -wd4127 -wd4706 -wd4201 -wd4214 -wd4510 -wd4512 -wd4610 -wd4514 -wd4820 -wd4365 -wd4987 -wd4710 -wd4061 -wd4986 -wd4191 -wd4574 -wd4917 -wd4711 -wd4611 -wd4571 -wd4324 -wd4505 -wd4263 -wd4264 -wd4738 -wd4242 -wd4244 -GS- -DVBOX -DVBOX_OSE -DVBOX_WITH_64_BITS_GUESTS -DVBOX_WITH_REM -DVBOX_WITH_RAW_MODE -DRT_OS_WINDOWS -D__WIN__ -DRT_ARCH_AMD64 -D__AMD64__ -D__WIN64__ -DVBOX_WITH_DEBUGGER -DIN_RING3 -DHC_ARCH_BITS=64 -DGC_ARCH_BITS=64 -DIN_VMM_R3 -DIN_DIS -DIN_GMM_R3 -DIN_DBG -DVBOX_IN_VMM -DVBOX_WITH_2ND_IEM_STEP -DVBOX_WITH_3RD_IEM_STEP -DVBOX_WITH_MULTI_CORE -DVBOX_WITH_PCI_PASSTHROUGH -DVBOX_WITH_SAFE_STR -DVBOX_WITH_RAW_RING1 -DVBOX_WITH_NEW_APIC -DVBOX_WITH_NEW_IOAPIC -DVBOX_WITH_USB -DVBOX_WITH_PDM_ASYNC_COMPLETION -DVBOX_WITH_NETSHAPER -DVBOX_WITH_RAW_MODE_NOT_R0 -D_CRT_SECURE_NO_DEPRECATE -DKBUILD_TYPE=\"release\" -DKBUILD_TARGET=\"win\" -DKBUILD_TARGET_ARCH=\"amd64\" -noover -O2xy -DVBOX_SVN_REV=112440 %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>D:\EZBUILD\vbox\out\win.amd64\release\obj\VBoxVMM\VBoxVMM.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ItemGroup>
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMR3\CFGM.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMR3\CPUM.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMR3\CPUMR3CpuId.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMR3\CPUMR3Db.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMR3\CPUMDbg.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMR3\DBGF.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMR3\DBGFAddr.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMR3\DBGFAddrSpace.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMR3\DBGFBp.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMR3\DBGFCoreWrite.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMR3\DBGFCpu.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMR3\DBGFDisas.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMR3\DBGFInfo.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMR3\DBGFLog.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMR3\DBGFMem.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMR3\DBGFOS.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMR3\DBGFR3PlugIn.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMR3\DBGFReg.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMR3\DBGFStack.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMR3\DBGFR3Trace.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMR3\DBGFR3Type.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMR3\EM.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMR3\EMR3Dbg.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMR3\EMRaw.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMR3\EMHM.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMR3\FTM.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMR3\GIM.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMR3\GIMHv.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMR3\GIMKvm.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMR3\GIMMinimal.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMR3\IEMR3.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMR3\IOM.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMR3\GMM.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMR3\MM.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMR3\MMHeap.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMR3\MMHyper.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMR3\MMPagePool.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMR3\MMUkHeap.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMR3\PDM.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMR3\PDMBlkCache.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMR3\PDMDevice.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMR3\PDMDevHlp.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMR3\PDMDevMiscHlp.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMR3\PDMDriver.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMR3\PDMLdr.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMR3\PDMCritSect.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMR3\PDMQueue.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMR3\PDMThread.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMR3\PGM.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMR3\PGMDbg.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMR3\PGMR3DbgA.asm" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMR3\PGMHandler.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMR3\PGMMap.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMR3\PGMPhys.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMR3\PGMPool.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMR3\PGMSavedState.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMR3\PGMSharedPage.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMR3\SELM.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMR3\SSM.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMR3\STAM.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMR3\TM.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMR3\TRPM.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMR3\VM.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMR3\VMEmt.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMR3\VMReq.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMR3\VMM.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMR3\VMMGuruMeditation.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMR3\VMMSwitcher.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMR3\VMMTests.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMR3\HM.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMR3\CSAM.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMR3\PATM.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMR3\PATMPatch.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMR3\PATMGuest.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMR3\PATMA.asm" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMR3\PATMSSM.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMR3\PATMR3Dbg.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMAll\CPUMAllRegs.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMAll\CPUMAllMsrs.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMAll\CPUMStack.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMAll\DBGFAll.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMAll\HMAll.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMAll\IEMAll.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMAll\IEMAllAImpl.asm" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMAll\IEMAllAImplC.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMAll\IOMAll.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMAll\IOMAllMMIO.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMAll\MMAll.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMAll\MMAllHyper.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMAll\MMAllPagePool.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMAll\PDMAll.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMAll\PDMAllCritSect.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMAll\PDMAllCritSectRw.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMAll\PDMAllCritSectBoth.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMAll\PDMAllQueue.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMAll\PGMAll.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMAll\PGMAllHandler.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMAll\PGMAllMap.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMAll\PGMAllPhys.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMAll\PGMAllPool.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMAll\SELMAll.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMAll\EMAll.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMAll\EMAllA.asm" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMAll\FTMAll.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMAll\GIMAll.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMAll\GIMAllHv.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMAll\GIMAllKvm.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMAll\TMAll.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMAll\TMAllCpu.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMAll\TMAllReal.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMAll\TMAllVirtual.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMAll\TRPMAll.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMAll\VMAll.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMAll\VMMAll.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMAll\VMMAllA.asm" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMAll\CSAMAll.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMAll\PATMAll.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMR3\PDMUsb.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMR3\PDMAsyncCompletion.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMR3\PDMAsyncCompletionFile.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMR3\PDMAsyncCompletionFileFailsafe.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMR3\PDMAsyncCompletionFileNormal.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMR3\PDMNetShaper.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMAll\PDMAllNetShaper.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMR3\APIC.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMAll\APICAll.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMAll\REMAll.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Artwork\win\TemplateDll.rc" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMSwitcher\AMD64To32Bit.asm" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMSwitcher\AMD64ToPAE.asm" />
+    <ClCompile Include="..\vbox\src\VBox\VMM\VMMSwitcher\AMD64Stub.asm" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>15aee369-9ab3-4e0b-9783-3f4b20b81949</ProjectGuid>
+    <RootNamespace>RuntimeR3NoCRTGCC</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalOptions>%(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ItemGroup>
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\misc\sanity-cpp.cpp" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\misc\sanity-c.c" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\misc\setjmp.asm" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\string\bzero.asm" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\string\memchr.asm" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\string\memcmp.asm" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\string\memcpy.asm" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\string\mempcpy.asm" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\string\memmove.asm" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\string\memset.asm" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\string\strchr.asm" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\string\strcpy.asm" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\string\strncpy.asm" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\string\strcmp.asm" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\string\strlen.asm" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\math\ceill.asm" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\math\cosl.asm" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\math\fabs.asm" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\math\fabsf.asm" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\math\fabsl.asm" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\math\floor.asm" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\math\floorf.asm" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\math\floorl.asm" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\math\ldexpl.asm" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\math\llrint.asm" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\math\llrintf.asm" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\math\llrintl.asm" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\math\logl.asm" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\math\lrint.asm" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\math\lrintf.asm" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\math\lrintl.asm" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\math\remainder.asm" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\math\remainderf.asm" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\math\remainderl.asm" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\math\sinl.asm" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\math\tanl.asm" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\math\trunc.asm" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\math\truncf.asm" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\math\truncl.asm" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\string\memchr_alias.c" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\string\memcmp_alias.c" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\string\memcpy_alias.c" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\string\memmove_alias.c" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\string\memset_alias.c" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\string\strchr_alias.c" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\string\strcmp_alias.c" />
+    <ClCompile Include="..\vbox\src\VBox\Runtime\common\string\strlen_alias.c" />
+  </ItemGroup>
+</Project>
