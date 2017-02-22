@@ -92,25 +92,30 @@ if defined _error_state (goto _error)
 if exist "%_build_dir%\VS_LINK" rd /s /q "%_build_dir%\VS_LINK"
 if exist "%_build_dir%\WDK_LINK" rd /s /q "%_build_dir%\WDK_LINK"
 if exist "%_build_dir%\SDK_LINK" rd /s /q "%_build_dir%\SDK_LINK"
+if exist "%_build_dir%\DXSDK_LINK" rd /s /q "%_build_dir%\DXSDK_LINK"
 mklink /D "%_build_dir%\VS_LINK" "%_vs10_path%"
 mklink /D "%_build_dir%\WDK_LINK" "%_wdk_path%"
 mklink /D "%_build_dir%\SDK_LINK" "%_sdk_path%"
+mklink /D "%_build_dir%\DXSDK_LINK" %_dxsdk_path%
 set "_vs10_path=%_build_dir%\VS_LINK"
 set "_wdk_path=%_build_dir%\WDK_LINK"
 set "_sdk_path=%_build_dir%\SDK_LINK"
+set "_dxsdk_path=%_build_dir%\DXSDK_LINK"
 exit /b
 :_clean_temp
 if exist "%_build_dir%\temp" (rd /s /q "%_build_dir%\temp")
 exit /b
-:_get__default_reg_value (key)
+:_get_default_reg_value
 set _reg_value=
-for /f "tokens=2,* usebackq" %%g in (`reg query %* /ve`) do set "_reg_value=%%h"
+for /f "tokens=2,* usebackq" %%g in (`reg query %1 /ve`) do set "_reg_value=%%h"
+if not defined _reg_value (exit /b)
 rem remove trailing slash
 if "%_reg_value:~-1%"=="\" set "_reg_value=%_reg_value:~0,-1%"
 exit /b
-:_get_reg_value (key) (value)
+:_get_reg_value
 set _reg_value=
 for /f "tokens=2,* usebackq" %%g in (`reg query %1 /v %2`) do set "_reg_value=%%h"
+if not defined _reg_value (exit /b)
 rem remove trailing slash
 if "%_reg_value:~-1%"=="\" set "_reg_value=%_reg_value:~0,-1%"
 exit /b
@@ -388,14 +393,19 @@ call :_print_ok VirtualBox successfully installed at %_install_path%
 exit /b
 :_find_VS10
 if defined _error_state (goto _error)
+if defined VS100COMNTOOLS (goto _vs10_env)
 call :_get_reg_value "HKEY_CURRENT_USER\SOFTWARE\Microsoft\VisualStudio\10.0_Config" "ShellFolder"
 if not defined _reg_value (
 	call :_print_error Visual Studio 2010 not found.
 	exit /b
 )
 set "_vs10_path=%_reg_value%"
+:_vs10_found
 call :_print_ok Visual Studio 2010 located.
 exit /b
+:_vs10_env
+set "_vs10_path=%VS100COMNTOOLS:~0,-15%"
+goto _vs10_found
 :_get_DXSDK
 if defined _error_state (goto _error)
 call :_print_msg DirectX SDK not found, attempting to download...
@@ -411,7 +421,7 @@ call :_print_ok DirectX SDK installed.
 exit /b
 :_find_DXSDK
 if defined _error_state (goto _error)
-if defined DXSDK_DIR set "_dxsdk_path=%DXSDK_DIR%"
+if defined DXSDK_DIR set _dxsdk_path="%DXSDK_DIR%"
 if [%_dxsdk_path%] neq [] goto _DXSDK_found
 call :_get_reg_value "HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\DirectX\Microsoft DirectX SDK (June 2010)" "InstallPath"
 if not defined _reg_value goto _DXSDK_not_found
@@ -467,7 +477,7 @@ PUSHD "%_build_dir%\temp"
 POPD
 if %errorlevel% neq 0 call :_print_error Downloading %* failed.
 exit /b
-:_decompress_next (dest_name) (create_dir?)
+:_decompress_next
 if defined _error_state (goto _error)
 setlocal enabledelayedexpansion
 set _mkdir=
@@ -573,7 +583,7 @@ if exist "python\python.exe" (
 	set "_python_path=%_build_dir%\python\python.exe"
 	exit /b
 )
-call :_get__default_reg_value "HKEY_CURRENT_USER\SOFTWARE\Python\PythonCore\2.7\InstallPath"
+call :_get_default_reg_value "HKEY_CURRENT_USER\SOFTWARE\Python\PythonCore\2.7\InstallPath"
 if defined _reg_value (
 	set "_python_path=%_reg_value%"
 	exit /b
