@@ -580,11 +580,12 @@ exit /b
 :_find_python
 if defined _error_state (goto _error)
 if exist "python\python.exe" (
-	set "_python_path=%_build_dir%\python\python.exe"
+	set "_python_path=%_build_dir%\python"
 	exit /b
 )
 call :_get_default_reg_value "HKEY_CURRENT_USER\SOFTWARE\Python\PythonCore\2.7\InstallPath"
 if defined _reg_value (
+	if "%_reg_value:~-1%"=="\" set "_reg_value=%_reg_value:~0,-1%"
 	set "_python_path=%_reg_value%"
 	exit /b
 )

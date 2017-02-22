@@ -1,6 +1,6 @@
 VirtualBox for Windows EZ-Build by rootw0rm, https://github.com/rootw0rm/VirtualBox-EzBuild
 
-Version: 0.2, a few bugfixes completed
+Version: 0.3, major bugfixes
 
 ---
 
