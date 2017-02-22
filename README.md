@@ -15,14 +15,14 @@ yet.  The tools and libraries downloaded include:
 * mingw64 (4.9.3)
 * nasm (2.12.02)
 * python (2.7.13)
-* perl (ActivePerl 5.24)
+* perl (ActivePerl 5.24.1)
 * ruby (2.3.3)
 * jom (latest)
 * libcurl (7.52.1)
-* openssl (1.1.0c)
+* openssl (1.1.0e)
 * qt (5.6.2)
-* virtualbox (5.1.12)
-* virtualbox sdk (5.1.12)
+* virtualbox (5.1.14)
+* virtualbox sdk (5.1.14)
 
 ---
 
@@ -40,7 +40,7 @@ Details of the VirtualBox build:
 * 64-bit release binaries, test signed, with x86 guest support
 * No SDL support, Qt5 only
 * Hardening disabled
-* Tested on version 5.1.12
+* Tested on version 5.1.14
 
 ---
 
