@@ -107,7 +107,7 @@ if exist "%_build_dir%\temp" (rd /s /q "%_build_dir%\temp")
 exit /b
 :_get_default_reg_value
 set _reg_value=
-for /f "tokens=2,* usebackq" %%g in (`reg query %1 /ve`) do set "_reg_value=%%h"
+for /f "tokens=2,* usebackq" %%g in (`reg query %* /ve`) do set "_reg_value=%%h"
 if not defined _reg_value (exit /b)
 rem remove trailing slash
 if "%_reg_value:~-1%"=="\" set "_reg_value=%_reg_value:~0,-1%"
